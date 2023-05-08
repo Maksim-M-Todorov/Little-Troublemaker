@@ -24,200 +24,88 @@ public class littleTroublemakerMS : MonoBehaviour
     protected float failsafetimer;
     private int failsafeDelay = 5;
 
+    //Roll the dice at the start to decide first appliance and go to it.
     private void Start()
     {
         ObjID();
     }
 
+    //Custom Function used to get the loc of the appliance and pass in the cordinates to the AI to go to.
+    private void GoToAppliance(bool app_state, string lookfor_app)
+    {
+        if (app_state == false)
+        {
+            pos = GameObject.Find(lookfor_app).transform.position;
+            navMeshAgent.SetDestination(pos);
+            if (DistanceCheck() == true) transform.LookAt(pos);
+
+            if (_numFound > 0)
+            {
+                _interactable = _colliders[0].GetComponent<IInteractable>();
+                _interactable.InteractAI(this);
+                ObjID();
+            }
+            else
+            {
+                if (_interactable != null) _interactable = null;
+            }
+        }
+        else
+        {
+            ObjID();
+            navMeshAgent.SetDestination(pos);
+
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ObjGoTo);
+        //Debug.Log(ObjGoTo);
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
+        //To which object can the AI go based on a dice roll.
         switch (ObjGoTo)
         {
             case 1:
                 {
-                    if (canInteractWO.stateWashingMash == false)
-                    {
-                        pos = GameObject.Find("Washing Mashine").transform.position;
-                        navMeshAgent.SetDestination(pos);
-                        if (DistanceCheck() == true) transform.LookAt(pos);
-
-                        if (_numFound > 0)
-                        {
-                            _interactable = _colliders[0].GetComponent<IInteractable>();
-                            _interactable.InteractAI(this);
-                            ObjID();
-                        }
-                        else
-                        {
-                            if (_interactable != null) _interactable = null;
-                        }
-                    }
-                    else
-                    {
-                        ObjID();
-                        navMeshAgent.SetDestination(pos);
-
-                    }
+                    GoToAppliance(canInteractWO.stateWashingMash, "Washing Mashine");
                 }
                 break;
 
             case 2:
                 {
-                    if (canInteractWO.stateDryer == false)
-                    {
-                        pos = GameObject.Find("Dryer").transform.position;
-                        navMeshAgent.SetDestination(pos);
-                        if (DistanceCheck() == true) transform.LookAt(pos);
-
-                        if (_numFound > 0)
-                        {
-                            _interactable = _colliders[0].GetComponent<IInteractable>();
-                            _interactable.InteractAI(this);
-                            ObjID();
-                        }
-                        else
-                        {
-                            if (_interactable != null) _interactable = null;
-                        }
-                    }
-                    else
-                    {
-                        ObjID();
-                        navMeshAgent.SetDestination(pos);
-
-                    }
+                    GoToAppliance(canInteractWO.stateDryer, "Dryer");
                 }
                 break;
 
             /*case 3:
                 {
-                    if (canInteractWO.stateBob == false)
-                    {
-                        pos = GameObject.Find("Dryer").transform.position;
-                        navMeshAgent.SetDestination(pos);
-                        if (DistanceCheck() == true) transform.LookAt(pos);
-
-                        if (_numFound > 0)
-                        {
-                            _interactable = _colliders[0].GetComponent<IInteractable>();
-                            _interactable.InteractAI(this);
-                            ObjID();
-                        }
-                        else
-                        {
-                            if (_interactable != null) _interactable = null;
-                        }
-                    }
+                    GoToAppliance(canInteractWO.stateBob, "Bob");
                 }
                 break;*/
 
             case 3:
                 {
-                    if (canInteractWO.stateFridge == false)
-                    {
-                        pos = GameObject.Find("Fridge").transform.position;
-                        navMeshAgent.SetDestination(pos);
-                        if (DistanceCheck() == true) transform.LookAt(pos);
-
-                        if (_numFound > 0)
-                        {
-                            _interactable = _colliders[0].GetComponent<IInteractable>();
-                            _interactable.InteractAI(this);
-                            ObjID();
-                        }
-                        else
-                        {
-                            if (_interactable != null) _interactable = null;
-                        }
-                    }
-                    else
-                    {
-                        ObjID();
-                        navMeshAgent.SetDestination(pos);
-
-                    }
+                    GoToAppliance(canInteractWO.stateFridge, "Fridge");
                 }
                 break;
 
             /*case 5:
                 {
-                    if (canInteractWO.stateTV == false)
-                    {
-                        pos = GameObject.Find("Dryer").transform.position;
-                        navMeshAgent.SetDestination(pos);
-                        if (DistanceCheck() == true) transform.LookAt(pos);
-
-                        if (_numFound > 0)
-                        {
-                            _interactable = _colliders[0].GetComponent<IInteractable>();
-                            _interactable.InteractAI(this);
-                            ObjID();
-                        }
-                        else
-                        {
-                            if (_interactable != null) _interactable = null;
-                        }
-                    }
+                    GoToAppliance(canInteractWO.stateTV, "TV");
                 }
                 break;*/
 
             case 4:
                 {
-                    if (canInteractWO.stateRadio == false)
-                    {
-                        pos = GameObject.Find("Radio").transform.position;
-                        navMeshAgent.SetDestination(pos);
-                        if (DistanceCheck() == true) transform.LookAt(pos);
-
-                        if (_numFound > 0)
-                        {
-                            _interactable = _colliders[0].GetComponent<IInteractable>();
-                            _interactable.InteractAI(this);
-                            ObjID();
-                        }
-                        else
-                        {
-                            if (_interactable != null) _interactable = null;
-                        }
-                    }
-                    else
-                    {
-                        ObjID();
-                        navMeshAgent.SetDestination(pos);
-
-                    }
+                    GoToAppliance(canInteractWO.stateRadio, "Radio");
                 }
                 break;
 
             case 5:
                 {
-                    if (canInteractWO.stateLamp == false)
-                    {
-                        pos = GameObject.Find("Lamp").transform.position;
-                        navMeshAgent.SetDestination(pos);
-                        if (DistanceCheck() == true) transform.LookAt(pos);
-
-                        if (_numFound > 0)
-                        {
-                            _interactable = _colliders[0].GetComponent<IInteractable>();
-                            _interactable.InteractAI(this);
-                            ObjID();
-                        }
-                        else
-                        {
-                            if (_interactable != null) _interactable = null;
-                        }
-                    }
-                    else
-                    {
-                        ObjID();
-                        navMeshAgent.SetDestination(pos);
-
-                    }
+                    GoToAppliance(canInteractWO.stateLamp, "Lamp");
                 }
                 break;
         }
@@ -226,6 +114,7 @@ public class littleTroublemakerMS : MonoBehaviour
             ObjID();
         }
 
+        //If the AI losses the cords to where it needs to go, after 5 seconds try and pass in new cords.
         if (Failsafe == true)
         {
             failsafetimer += Time.deltaTime;
@@ -238,12 +127,15 @@ public class littleTroublemakerMS : MonoBehaviour
         }
 
     }
+    //Gizmo sphere that shows the interactable hitbox of the AI.
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(_interactionPoint.position, _interactionPointRadius);
     }
 
+    //Distance check to the passed in cords of the Appliance to the AI.
+    //!!! The cord are the origin point of the object. If the object is wide account for that by adding to the distance in Update.
     private bool DistanceCheck()
     {
         if (Vector3.Distance(transform.position, navMeshAgent.destination) <= 0.3f)
@@ -256,6 +148,7 @@ public class littleTroublemakerMS : MonoBehaviour
         }
     }
 
+    //Function to roll a dice and decide to which object to go.
    private int ObjID()
     {
         ObjGoTo = Random.Range(1, 6);

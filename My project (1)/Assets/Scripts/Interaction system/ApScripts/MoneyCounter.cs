@@ -31,6 +31,15 @@ public class MoneyCounter : MonoBehaviour
     public int numFridge = 0;
     public int numTV = 0;
     public int numLamp = 0;
+    
+    //Consumer Time on
+    public int timeWashingMash = 0;
+    public int timeDryer = 0;
+    public int timeBob = 0;
+    public int timeRadio = 0;
+    public int timeFridge = 0;
+    public int timeTV = 0;
+    public int timeLamp = 0;
 
     //Consumer Cost per Unit
     public int costWashingMash = 10;
@@ -70,11 +79,30 @@ public class MoneyCounter : MonoBehaviour
         }
     }
 
-    public void MoneyCounterUP()
+    //Count up for appliance on - time.
+    private void CountAppTimeOn(bool stateAppliance, int appOnTime)
     {
+        if (stateAppliance == true)
+        {
+            appOnTime += 1;
+        }
+    }
 
+    private void MoneyCounterUP()
+    {
+        //Count up money collectivly and display it
         moneyPerSec += (costWashingMash*numWashingMash + costDryer*numDryer + costBob*numBob + costRadio*numRadio + costFridge*numFridge + costTV*numTV + costLamp*numLamp);
         mCounterText.text = "-" + (int)moneyPerSec;
+
+        //Count up for how long each appliance is on (Delay Ticks = seconds) used for end of day cost breakup screen.
+        CountAppTimeOn(stateWashingMash, timeWashingMash);
+        CountAppTimeOn(stateDryer, timeDryer);
+        CountAppTimeOn(stateBob, timeBob);
+        CountAppTimeOn(stateRadio, timeRadio);
+        CountAppTimeOn(stateFridge, timeFridge);
+        CountAppTimeOn(stateTV, timeTV);
+        CountAppTimeOn(stateLamp, timeLamp);
     }
+
 
 }
