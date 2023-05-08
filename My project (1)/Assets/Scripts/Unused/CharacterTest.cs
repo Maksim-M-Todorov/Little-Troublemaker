@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterTest : MonoBehaviour
 {
-    bool isAlive = true;
+    /*bool isAlive = true;
     int charMaxHealth = 100;
     int charCurrentHealth = 50;
 
@@ -20,5 +20,5 @@ public class CharacterTest : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 }
