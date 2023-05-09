@@ -8,12 +8,14 @@ using System.Security.Cryptography.X509Certificates;
 public class MoneyCounter : MonoBehaviour
 {
     public TMP_Text mCounterText;
-    private float moneyPerSec;
-    public int Delay = 1;
-    protected float timer;
+    public Inventory inventory;
     public bool counterOn = false;
+    public int Delay = 1;
+    private float moneyPerSec;
+    protected float timer;
 
     //Consumer State var
+    [Header("Appliance State")]
     public bool stateWashingMash = false;
     public bool stateDryer = false;
     public bool stateBob = false;
@@ -24,6 +26,7 @@ public class MoneyCounter : MonoBehaviour
 
 
     //Consumer Num ON
+    [Header("Appliance State calnum")]
     public int numWashingMash = 0;
     public int numDryer = 0;
     public int numBob = 0;
@@ -33,40 +36,41 @@ public class MoneyCounter : MonoBehaviour
     public int numLamp = 0;
     
     //Consumer Time on
-    public int timeWashingMash = 0;
-    public int timeDryer = 0;
-    public int timeBob = 0;
-    public int timeRadio = 0;
-    public int timeFridge = 0;
-    public int timeTV = 0;
-    public int timeLamp = 0;
+    private int timeWashingMash = 0;
+    private int timeDryer = 0;
+    private int timeBob = 0;
+    private int timeRadio = 0;
+    private int timeFridge = 0;
+    private int timeTV = 0;
+    private int timeLamp = 0;
 
     //Consumer Cost per Unit
-    public int costWashingMash = 10;
-    public int costDryer = 10;
-    public int costBob = 10;
-    public int costRadio = 10;
-    public int costFridge = 10;
-    public int costTV = 10;
-    public int costLamp = 10;
+    [Header("Appliance Cost per Second")]
+    [SerializeField]private int costWashingMash = 10;
+    [SerializeField]private int costDryer = 10;
+    [SerializeField]private int costBob = 10;
+    [SerializeField]private int costRadio = 10;
+    [SerializeField]private int costFridge = 10;
+    [SerializeField]private int costTV = 10;
+    [SerializeField]private int costLamp = 10;
 
 
-
+    //Initialize text in the UI element
     private void Start()
     {
-        mCounterText.text = "";
+        mCounterText.text = inventory.startMoney.ToString();
     }
 
     private void Update()
     {
+        //Starts the counter that calculates and adds costs to the total amount.
         if (stateWashingMash == true || stateDryer == true|| stateBob == true|| stateRadio == true|| stateFridge == true|| stateTV == true|| stateLamp == true)
         {
             counterOn = true;
         }
         else { counterOn = false; }
 
-
-
+        //Counter/Timer
         if (counterOn == true)
         {
             timer += Time.deltaTime;
@@ -79,29 +83,21 @@ public class MoneyCounter : MonoBehaviour
         }
     }
 
-    //Count up for appliance on - time.
-    private void CountAppTimeOn(bool stateAppliance, int appOnTime)
-    {
-        if (stateAppliance == true)
-        {
-            appOnTime += 1;
-        }
-    }
-
+    //Money Calculation + for how long an Appliance is on.
     private void MoneyCounterUP()
     {
-        //Count up money collectivly and display it
+        //Count up money collectivly and display it.
         moneyPerSec += (costWashingMash*numWashingMash + costDryer*numDryer + costBob*numBob + costRadio*numRadio + costFridge*numFridge + costTV*numTV + costLamp*numLamp);
-        mCounterText.text = "-" + (int)moneyPerSec;
+        mCounterText.text = (inventory.startMoney - (int)moneyPerSec).ToString();
 
         //Count up for how long each appliance is on (Delay Ticks = seconds) used for end of day cost breakup screen.
-        CountAppTimeOn(stateWashingMash, timeWashingMash);
-        CountAppTimeOn(stateDryer, timeDryer);
-        CountAppTimeOn(stateBob, timeBob);
-        CountAppTimeOn(stateRadio, timeRadio);
-        CountAppTimeOn(stateFridge, timeFridge);
-        CountAppTimeOn(stateTV, timeTV);
-        CountAppTimeOn(stateLamp, timeLamp);
+        timeWashingMash += numWashingMash;
+        timeDryer += numDryer;
+        timeBob += numBob;
+        timeRadio += numRadio;
+        timeFridge += numFridge;
+        timeTV += numTV;
+        timeLamp += numLamp;
     }
 
 

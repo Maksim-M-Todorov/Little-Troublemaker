@@ -6,6 +6,11 @@ using UnityEngine.InputSystem;
 public class Inventory : MonoBehaviour
 {
     public bool hasKey = false;
+    public int startMoney = 2000;
+
+    //Passive upgrades
+
+    //Active upgrades
 
     private void Update()
     {
