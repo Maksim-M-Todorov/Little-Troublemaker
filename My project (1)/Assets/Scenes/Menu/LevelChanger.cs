@@ -22,6 +22,10 @@ public class LevelChanger : MonoBehaviour
     {
         StartCoroutine(FadeToLevel(SceneManager.GetActiveScene().buildIndex+1));
     }
+    public void FadeToUpdateMenu()
+    {
+        StartCoroutine(FadeToLevel(2));
+    }
 
     IEnumerator FadeToLevel(int levelIndex)
     {
