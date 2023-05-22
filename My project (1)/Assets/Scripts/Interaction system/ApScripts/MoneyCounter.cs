@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 
 public class MoneyCounter : MonoBehaviour
 {
@@ -81,6 +82,8 @@ public class MoneyCounter : MonoBehaviour
                 MoneyCounterUP();
             }
         }
+        mCounterText.text = inventory.currentMoney.ToString();
+        SetMoney();
     }
 
     //Money Calculation + for how long an Appliance is on.
@@ -88,7 +91,7 @@ public class MoneyCounter : MonoBehaviour
     {
         //Count up money collectivly and display it.
         moneyPerSec += (costWashingMash*numWashingMash + costDryer*numDryer + costBob*numBob + costRadio*numRadio + costFridge*numFridge + costTV*numTV + costLamp*numLamp);
-        mCounterText.text = (inventory.startMoney - (int)moneyPerSec).ToString();
+        inventory.currentMoney = inventory.startMoney - (int)moneyPerSec;
 
         //Count up for how long each appliance is on (Delay Ticks = seconds) used for end of day cost breakup screen.
         timeWashingMash += numWashingMash;
@@ -98,6 +101,11 @@ public class MoneyCounter : MonoBehaviour
         timeFridge += numFridge;
         timeTV += numTV;
         timeLamp += numLamp;
+    }
+
+    private void SetMoney()
+    {
+        PlayerPrefs.SetInt("Money", inventory.currentMoney);
     }
 
 
