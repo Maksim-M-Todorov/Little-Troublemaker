@@ -14,7 +14,7 @@ public class MoneyCounter : MonoBehaviour
     public int Delay = 1;
     private float moneyPerSec;
     protected float timer;
-
+    
     //Consumer State var
     [Header("Appliance State")]
     public bool stateWashingMash = false;
@@ -47,13 +47,13 @@ public class MoneyCounter : MonoBehaviour
 
     //Consumer Cost per Unit
     [Header("Appliance Cost per Second")]
-    [SerializeField]private int costWashingMash = 10;
-    [SerializeField]private int costDryer = 10;
-    [SerializeField]private int costBob = 10;
-    [SerializeField]private int costRadio = 10;
-    [SerializeField]private int costFridge = 10;
-    [SerializeField]private int costTV = 10;
-    [SerializeField]private int costLamp = 10;
+    [SerializeField]private int costWashingMash = 20;
+    [SerializeField]private int costDryer = 45;
+    [SerializeField]private int costBob = 5;
+    [SerializeField]private int costRadio = 2;
+    [SerializeField]private int costFridge = 5;
+    [SerializeField]private int costTV = 2;
+    [SerializeField]private int costLamp = 2;
 
 
     //Initialize text in the UI element

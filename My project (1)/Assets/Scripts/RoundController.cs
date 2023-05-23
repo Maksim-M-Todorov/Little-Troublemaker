@@ -11,12 +11,15 @@ public class RoundController : MonoBehaviour
     private bool roundStart = false;
     public LevelChanger levelChangerUpgradeMenu;
     public Inventory inventory;
-    [SerializeField] private float roundLenght = 120f;
+    public float roundLenght = 120f;
+    public bool roundComplete = false;
 
 
     void Start()
     {
         roundStart = true;
+        //Load Player Data
+        inventory.loadPlayerData();
     }
 
     void Update()
@@ -32,9 +35,21 @@ public class RoundController : MonoBehaviour
                 roundLenght = 0f;
                 if (inventory.startMoney > 0)
                 {
-                    levelChangerUpgradeMenu.FadeToUpdateMenu();
+                    roundComplete = true;
+                    //levelChangerUpgradeMenu.FadeToUpdateMenu();
                 }
             }
         }
+
+        if (roundComplete == true)
+        {
+            //Save Player Data *money
+            //Display Activate Breakdown Menu
+            //If continue button pressed fade level and go to next one
+        }
+    }
+    void StartRound()
+    {
+        roundStart = true;
     }
 }
