@@ -98,6 +98,35 @@ public class MoneyCounter : MonoBehaviour
         }
         mCounterText.text = inventory.currentMoney.ToString();
         SetMoney();
+
+        //Apply Upgrades
+        //House Upgrades
+        if (inventory.SolarPanels) 
+        {
+            costBob = 1;
+            costRadio = 2;
+            costTV = 1;
+        }
+
+        if (inventory.EnergyTiles)
+        {
+            costWashingMash = 10;
+            costFridge = 2;
+            costDryer = 20;
+            costBob = 3;
+        }
+
+        if (inventory.ImprovedIsolation)
+        {
+            costRadio = 2;
+            costTV = 2;
+        }
+
+        if (inventory.LEDBulbs)
+        {
+            costLamp =  1;
+        }
+        Debug.Log(inventory.EnergyTiles);
     }
 
     //Money Calculation + for how long an Appliance is on.

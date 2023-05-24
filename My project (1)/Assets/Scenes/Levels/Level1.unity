@@ -3981,7 +3981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 261, y: 189}
+  m_AnchoredPosition: {x: 261, y: 132}
   m_SizeDelta: {x: 190.25, y: 42.939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1975337065
@@ -4019,7 +4019,7 @@ MonoBehaviour:
   InteractablesOB: {fileID: 1171361283}
   moneyCounter: {fileID: 1678150278}
   pauseMenu: {fileID: 1190132009}
-  roundLenght: 20
+  roundLenght: 120
   roundComplete: 0
 --- !u!4 &1975337067
 Transform:
@@ -4044,9 +4044,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
+      propertyPath: costTV
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
+      propertyPath: costBob
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
+      propertyPath: costDryer
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
+      propertyPath: costRadio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
+      propertyPath: costFridge
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
       propertyPath: mCounterText
       value: 
       objectReference: {fileID: 606661958}
+    - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
+      propertyPath: costWashingMash
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 9011009402017258156, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
       propertyPath: roundController
       value: 

@@ -16,7 +16,7 @@ public class UpgradePassive : MonoBehaviour
     public void EnergyTiles()
     {
         inv.EnergyTiles = true;
-        inv.currentMoney -= 10000;
+        inv.currentMoney -= 9999;
     }
 
     public void ImprovedIsolation()
