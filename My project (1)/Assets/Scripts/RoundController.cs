@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,14 +12,20 @@ public class RoundController : MonoBehaviour
     private bool roundStart = false;
     public LevelChanger levelChangerUpgradeMenu;
     public Inventory inventory;
+    public GameObject AI;
+    public GameObject InteractablesOB;
+    public MoneyCounter moneyCounter;
+    public PauseMenu pauseMenu;
     public float roundLenght = 120f;
     public bool roundComplete = false;
 
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex != 2)
+        { 
         roundStart = true;
-        //Load Player Data
+        }
         inventory.loadPlayerData();
     }
 
@@ -43,6 +50,9 @@ public class RoundController : MonoBehaviour
 
         if (roundComplete == true)
         {
+            AI.gameObject.SetActive(false);
+            InteractablesOB.gameObject.SetActive(false);
+            inventory.savePlayerData();
             //Save Player Data *money
             //Display Activate Breakdown Menu
             //If continue button pressed fade level and go to next one
@@ -51,5 +61,6 @@ public class RoundController : MonoBehaviour
     void StartRound()
     {
         roundStart = true;
+        moneyCounter.counterOn = true;
     }
 }

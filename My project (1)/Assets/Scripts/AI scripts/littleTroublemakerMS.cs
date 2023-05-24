@@ -91,19 +91,19 @@ public class littleTroublemakerMS : MonoBehaviour
                 }
                 break;
 
-            /*case 5:
+            case 4:
                 {
                     GoToAppliance(canInteractWO.stateTV, "TV");
                 }
-                break;*/
+                break;
 
-            case 4:
+            case 5:
                 {
                     GoToAppliance(canInteractWO.stateRadio, "Radio");
                 }
                 break;
 
-            case 5:
+            case 6:
                 {
                     GoToAppliance(canInteractWO.stateLamp, "Lamp");
                 }
@@ -151,7 +151,7 @@ public class littleTroublemakerMS : MonoBehaviour
     //Function to roll a dice and decide to which object to go.
    private int ObjID()
     {
-        ObjGoTo = Random.Range(1, 6);
+        ObjGoTo = Random.Range(1, 7);
         return ObjGoTo;
     }
 }

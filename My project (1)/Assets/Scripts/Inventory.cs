@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 
 public class Inventory : MonoBehaviour
 {
     public bool hasKey = false;
-    public int startMoney = 2000;
-    public int currentMoney = 0;
+    public int startMoney = 20000;
+    public int currentMoney = 20000;
     public RoundController roundController;
     
 
@@ -65,13 +67,10 @@ public class Inventory : MonoBehaviour
     public int DishWasherTier = 0;
     //==============================================================
 
-    private void Awake()
-    {
-        currentMoney = PlayerPrefs.GetInt("Money");
-    }
     private void Update()
     {
         //if (Keyboard.current.qKey.wasPressedThisFrame) hasKey = !hasKey;
+        Debug.Log(currentMoney);
     }
     
     //Converts Boolean Variable to an int 1 = true; 0 = false;
@@ -81,6 +80,9 @@ public class Inventory : MonoBehaviour
 
     public void savePlayerData()
     {
+        //Save Player Money
+        PlayerPrefs.SetInt("PlayerMoney", currentMoney);
+
         //Save Player Tools
         PlayerPrefs.SetInt("Teddybear", boolToInt(Teddybear));
         PlayerPrefs.SetInt("NerfGun", boolToInt(NerfGun));
@@ -104,6 +106,9 @@ public class Inventory : MonoBehaviour
 
     public void loadPlayerData()
     {
+        //Load Player Money
+        currentMoney = PlayerPrefs.GetInt("PlayerMoney");
+
         //Load Player Tools
         Teddybear = intToBool(PlayerPrefs.GetInt("Teddybear", 0));
         NerfGun = intToBool(PlayerPrefs.GetInt("NerfGun", 0));
@@ -125,6 +130,14 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void clearPlayerData()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 
-
+    public void setStarterMoney()
+    {
+        currentMoney = startMoney;
+        PlayerPrefs.SetInt("PlayerMoney", currentMoney);
+    }
 }

@@ -25,6 +25,14 @@ public class LevelChanger : MonoBehaviour
     public void FadeToUpdateMenu()
     {
         StartCoroutine(FadeToLevel(2));
+    } 
+    public void FadeToMainMenu()
+    {
+        StartCoroutine(FadeToLevel(0));
+    }
+    public void FadeToLevel1()
+    {
+        StartCoroutine(FadeToLevel(1));
     }
 
     IEnumerator FadeToLevel(int levelIndex)

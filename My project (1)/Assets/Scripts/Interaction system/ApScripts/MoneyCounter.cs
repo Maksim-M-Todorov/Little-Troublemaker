@@ -5,11 +5,14 @@ using TMPro;
 using UnityEngine.UI;
 using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting;
+using Mono.Cecil.Cil;
+using UnityEngine.SceneManagement;
 
 public class MoneyCounter : MonoBehaviour
 {
     public TMP_Text mCounterText;
     public Inventory inventory;
+    [SerializeField] RoundController roundController;
     public bool counterOn = false;
     public int Delay = 1;
     private float moneyPerSec;
@@ -37,39 +40,50 @@ public class MoneyCounter : MonoBehaviour
     public int numLamp = 0;
     
     //Consumer Time on
-    private int timeWashingMash = 0;
-    private int timeDryer = 0;
-    private int timeBob = 0;
-    private int timeRadio = 0;
-    private int timeFridge = 0;
-    private int timeTV = 0;
-    private int timeLamp = 0;
+    public int timeWashingMash = 0;
+    public int timeDryer = 0;
+    public int timeBob = 0;
+    public int timeRadio = 0;
+    public int timeFridge = 0;
+    public int timeTV = 0;
+    public int timeLamp = 0;
 
     //Consumer Cost per Unit
     [Header("Appliance Cost per Second")]
-    [SerializeField]private int costWashingMash = 20;
-    [SerializeField]private int costDryer = 45;
-    [SerializeField]private int costBob = 5;
-    [SerializeField]private int costRadio = 2;
-    [SerializeField]private int costFridge = 5;
-    [SerializeField]private int costTV = 2;
-    [SerializeField]private int costLamp = 2;
+    public int costWashingMash = 20;
+    public int costDryer = 45;
+    public int costBob = 5;
+    public int costRadio = 2;
+    public int costFridge = 5;
+    public int costTV = 2;
+    public int costLamp = 2;
 
 
     //Initialize text in the UI element
     private void Start()
     {
-        mCounterText.text = inventory.startMoney.ToString();
+        mCounterText.text = inventory.currentMoney.ToString();
+        if (SceneManager.GetActiveScene().buildIndex != 2)
+        {
+            counterOn = true;
+        }
+        else { counterOn = false; }
     }
 
     private void Update()
     {
         //Starts the counter that calculates and adds costs to the total amount.
-        if (stateWashingMash == true || stateDryer == true|| stateBob == true|| stateRadio == true|| stateFridge == true|| stateTV == true|| stateLamp == true)
+        if (roundController.roundComplete)
         {
-            counterOn = true;
+            stateWashingMash = false; 
+            stateDryer = false; 
+            stateBob = false; 
+            stateRadio = false; 
+            stateFridge = false; 
+            stateTV = false; 
+            stateLamp = false;
+            counterOn = false; 
         }
-        else { counterOn = false; }
 
         //Counter/Timer
         if (counterOn == true)
@@ -90,8 +104,8 @@ public class MoneyCounter : MonoBehaviour
     private void MoneyCounterUP()
     {
         //Count up money collectivly and display it.
-        moneyPerSec += (costWashingMash*numWashingMash + costDryer*numDryer + costBob*numBob + costRadio*numRadio + costFridge*numFridge + costTV*numTV + costLamp*numLamp);
-        inventory.currentMoney = inventory.startMoney - (int)moneyPerSec;
+        moneyPerSec = (costWashingMash*numWashingMash + costDryer*numDryer + costBob*numBob + costRadio*numRadio + costFridge*numFridge + costTV*numTV + costLamp*numLamp);
+        inventory.currentMoney = inventory.currentMoney - (int)moneyPerSec;
 
         //Count up for how long each appliance is on (Delay Ticks = seconds) used for end of day cost breakup screen.
         timeWashingMash += numWashingMash;
@@ -103,9 +117,9 @@ public class MoneyCounter : MonoBehaviour
         timeLamp += numLamp;
     }
 
-    private void SetMoney()
+    public void SetMoney()
     {
-        PlayerPrefs.SetInt("Money", inventory.currentMoney);
+        PlayerPrefs.SetInt("PlayerMoney", inventory.currentMoney);
     }
 
 
