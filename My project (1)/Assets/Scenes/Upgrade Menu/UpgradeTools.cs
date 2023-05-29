@@ -19,15 +19,15 @@ public class UpgradeTools : MonoBehaviour
         inv.currentMoney -= 250;
     }
 
-    public void HouseKeys()
+    public void EnergyDrink()
     {
-        inv.HouseKey = true;
+        inv.EnergyDrink = true;
         inv.currentMoney -= 400;
     }
 
-    public void OutletBlockers()
+    public void xRayGoggles()
     {
-        inv.PowerOutletBlockers = true;
+        inv.xRayGoggles = true;
         inv.currentMoney -= 300;
     }
 

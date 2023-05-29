@@ -6,6 +6,7 @@ public class Dryer : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public MoneyCounter moneyCounter;
+    public Inventory inventory;
 
     public string InteractionPrompt => _prompt;
 
@@ -34,5 +35,18 @@ public class Dryer : MonoBehaviour, IInteractable
             moneyCounter.numDryer = 1;
         }
         return true;
+    }
+    private void Update()
+    {
+        if (moneyCounter.stateDryer == true && inventory.xRayGoggles == true)
+        {
+            Outline outline = gameObject.GetComponent<Outline>();
+            outline.enabled = true;
+        }
+        else
+        {
+            Outline outline = gameObject.GetComponent<Outline>();
+            outline.enabled = false;
+        }
     }
 }

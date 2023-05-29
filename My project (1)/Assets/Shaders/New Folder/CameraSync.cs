@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraSync : MonoBehaviour
 {
-    private Camera camera;
+    /*private Camera camera;
     public Camera cameraToSync;
 
     private void Awake()
@@ -17,5 +17,5 @@ public class CameraSync : MonoBehaviour
         camera.fieldOfView = cameraToSync.fieldOfView;
         camera.transform.position = cameraToSync.transform.position;
         camera.transform.rotation = cameraToSync.transform.rotation;
-    }
+    }*/
 }
