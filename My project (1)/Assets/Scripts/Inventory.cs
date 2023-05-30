@@ -17,23 +17,19 @@ public class Inventory : MonoBehaviour
     //==============================================================
     //Teddy Bear
     public bool Teddybear = false;
-    int TeddybearUses = 3;
+    //int TeddybearUses = 3;
 
     //Nerf Gun
     public bool NerfGun = false;
-    int NerfGunUses = 3;
-
-    //House Keys //SCRAPPED
-    public bool HouseKey = false;
-    int HouseKeyUses = 1;
+    //int NerfGunUses = 3;
 
     //Power Outlet Blockers
-    public bool PowerOutletBlockers = false;
-    int PowerOutletBlockersUses = 3;
+    public bool xRayGoggles = false;
+    //int xRayGogglesUses = 1;
 
     //Energy Drink
     public bool EnergyDrink = false;
-    int EnergyDrinkUses = 3;
+    //int EnergyDrinkUses = 3;
     //==============================================================
 
 
@@ -70,7 +66,6 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         //if (Keyboard.current.qKey.wasPressedThisFrame) hasKey = !hasKey;
-        Debug.Log(currentMoney);
     }
     
     //Converts Boolean Variable to an int 1 = true; 0 = false;
@@ -87,6 +82,7 @@ public class Inventory : MonoBehaviour
         PlayerPrefs.SetInt("Teddybear", boolToInt(Teddybear));
         PlayerPrefs.SetInt("NerfGun", boolToInt(NerfGun));
         PlayerPrefs.SetInt("EnergyDrink", boolToInt(EnergyDrink));
+        PlayerPrefs.SetInt("xRayGoggles", boolToInt(xRayGoggles));
 
         //Save Player House Upgrades
         PlayerPrefs.SetInt("SolarPanels", boolToInt(SolarPanels));
@@ -113,6 +109,7 @@ public class Inventory : MonoBehaviour
         Teddybear = intToBool(PlayerPrefs.GetInt("Teddybear", 0));
         NerfGun = intToBool(PlayerPrefs.GetInt("NerfGun", 0));
         EnergyDrink = intToBool(PlayerPrefs.GetInt("EnergyDrink", 0));
+        xRayGoggles = intToBool(PlayerPrefs.GetInt("xRayGoggles", 0));
 
         //Load Player House Upgrades
         SolarPanels = intToBool(PlayerPrefs.GetInt("SolarPanels", 0));

@@ -126,7 +126,6 @@ public class MoneyCounter : MonoBehaviour
         {
             costLamp =  1;
         }
-        Debug.Log(inventory.EnergyTiles);
     }
 
     //Money Calculation + for how long an Appliance is on.

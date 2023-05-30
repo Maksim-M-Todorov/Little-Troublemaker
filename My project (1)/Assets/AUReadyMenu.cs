@@ -6,10 +6,13 @@ public class AUReadyMenu : MonoBehaviour
 {
     public PauseMenu pauseGame;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+    void Start()
+    {
         pauseGame.PauseNoPM();
     }
 }
