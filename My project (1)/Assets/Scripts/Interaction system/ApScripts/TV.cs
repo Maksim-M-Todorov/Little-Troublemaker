@@ -36,7 +36,7 @@ public class TV : MonoBehaviour, IInteractable
         }
         return true;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (moneyCounter.stateTV == true && inventory.xRayGoggles == true)
         {

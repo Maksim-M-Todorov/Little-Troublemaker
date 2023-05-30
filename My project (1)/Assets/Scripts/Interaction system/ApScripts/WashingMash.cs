@@ -36,7 +36,7 @@ public class WashingMash : MonoBehaviour, IInteractable
         }
         return true;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (moneyCounter.stateWashingMash == true && inventory.xRayGoggles == true)
         {

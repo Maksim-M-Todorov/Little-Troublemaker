@@ -36,7 +36,7 @@ public class Fridge : MonoBehaviour, IInteractable
         }
         return true;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (moneyCounter.stateFridge == true && inventory.xRayGoggles == true)
         {

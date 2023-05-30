@@ -38,7 +38,7 @@ public class Radio : MonoBehaviour, IInteractable
         }
         return true;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (moneyCounter.stateRadio == true && inventory.xRayGoggles == true)
         {

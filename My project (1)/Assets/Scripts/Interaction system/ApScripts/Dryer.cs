@@ -36,7 +36,7 @@ public class Dryer : MonoBehaviour, IInteractable
         }
         return true;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (moneyCounter.stateDryer == true && inventory.xRayGoggles == true)
         {

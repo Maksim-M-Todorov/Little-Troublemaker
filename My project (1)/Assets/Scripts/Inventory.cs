@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
     //int NerfGunUses = 3;
 
     //Power Outlet Blockers
-    public bool xRayGoggles = false;
+    public bool xRayGoggles = true;
     //int xRayGogglesUses = 1;
 
     //Energy Drink

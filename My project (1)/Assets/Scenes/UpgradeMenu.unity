@@ -2353,7 +2353,7 @@ GameObject:
   - component: {fileID: 247668391}
   - component: {fileID: 247668390}
   m_Layer: 5
-  m_Name: Buy House Keys
+  m_Name: Buy xRayGoggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2426,7 +2426,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 598085094}
         m_TargetAssemblyTypeName: UpgradeTools, Assembly-CSharp
-        m_MethodName: HouseKeys
+        m_MethodName: xRayGoggles
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2790,7 +2790,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b9852a329769722459ce8f4830f2b87e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3573,7 +3573,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b9852a329769722459ce8f4830f2b87e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5085,7 +5085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699629325}
   m_Layer: 5
-  m_Name: Outlet Blockers
+  m_Name: Energy Drink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7101,7 +7101,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b9852a329769722459ce8f4830f2b87e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7333,7 +7333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b9852a329769722459ce8f4830f2b87e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8078,7 +8078,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u20AC 400"
+  m_text: "\u20AC 500"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -9406,11 +9406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Is one appliance using way too much energy? With the power outlet blockers
-    you can make sure one appliance does not get turned on for the duration of a
-    full round.
-
-'
+  m_text: ADD DESC ENERGZ DRINK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -11650,9 +11646,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use this key to lock any room for the duration of a full round. Use the
-    key on one door of a room and the key will lock all possible entrances to that
-    room.
+  m_text: 'ADD DESC xRAYGOGGLES
 
 '
   m_isRightToLeft: 0
@@ -12477,6 +12471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673398004}
   - component: {fileID: 1673398003}
+  - component: {fileID: 1673398005}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -12561,6 +12556,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1673398005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673398002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1676026629
 GameObject:
   m_ObjectHideFlags: 0
@@ -12723,7 +12738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702489324}
   m_Layer: 5
-  m_Name: Keys
+  m_Name: xRayGoggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13666,7 +13681,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b9852a329769722459ce8f4830f2b87e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14531,7 +14546,7 @@ GameObject:
   - component: {fileID: 2028032844}
   - component: {fileID: 2028032843}
   m_Layer: 5
-  m_Name: Buy Power Outlet Blockers
+  m_Name: Buy EnergyDrink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14604,7 +14619,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 598085094}
         m_TargetAssemblyTypeName: UpgradeTools, Assembly-CSharp
-        m_MethodName: OutletBlockers
+        m_MethodName: EnergyDrink
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
