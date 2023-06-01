@@ -15,4 +15,11 @@ public class AUReadyMenu : MonoBehaviour
     {
         pauseGame.PauseNoPM();
     }
+    private void Update()
+    {
+        if (Time.timeScale == 1f)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

@@ -36,7 +36,7 @@ public class Lamp : MonoBehaviour, IInteractable
         }
         return true;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (moneyCounter.stateLamp == true && inventory.xRayGoggles == true)
         {

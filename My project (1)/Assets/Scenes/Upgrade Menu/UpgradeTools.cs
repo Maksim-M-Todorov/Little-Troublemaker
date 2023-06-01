@@ -10,6 +10,7 @@ public class UpgradeTools : MonoBehaviour
     public void TeddyBear()
     {
         inv.Teddybear = true;
+        inv.TeddybearUses = 3;
         inv.currentMoney -= 350;
     }
 

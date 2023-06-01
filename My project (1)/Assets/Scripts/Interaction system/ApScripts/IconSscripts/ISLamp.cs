@@ -29,7 +29,7 @@ public class ISLamp : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject newSpawnedObject = Instantiate(spawnItem, transform.position, Quaternion.identity);
+        GameObject newSpawnedObject = Instantiate(spawnItem, transform.position, Quaternion.Euler(-90, 0, 0));
         newSpawnedObject.transform.parent = transform;
     }
 

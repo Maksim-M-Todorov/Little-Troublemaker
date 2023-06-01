@@ -14,7 +14,7 @@ public class littleTroublemakerMS : MonoBehaviour
     [SerializeField] private LayerMask _interactableMask;
 
     private readonly Collider[] _colliders = new Collider[3];
-    [SerializeField] private int _numFound;
+    public int _numFound;
     private IInteractable _interactable;
 
     private Vector3 pos;
@@ -23,6 +23,7 @@ public class littleTroublemakerMS : MonoBehaviour
     private bool Failsafe = false;
     protected float failsafetimer;
     private int failsafeDelay = 5;
+
 
     //Roll the dice at the start to decide first appliance and go to it.
     private void Start()
@@ -43,7 +44,6 @@ public class littleTroublemakerMS : MonoBehaviour
             {
                 _interactable = _colliders[0].GetComponent<IInteractable>();
                 _interactable.InteractAI(this);
-                ObjID();
             }
             else
             {
@@ -54,61 +54,75 @@ public class littleTroublemakerMS : MonoBehaviour
         {
             ObjID();
             navMeshAgent.SetDestination(pos);
-
+            if (app_state == true)
+            {
+                pos = GameObject.Find("RestingPlace").transform.position;
+                navMeshAgent.SetDestination(pos);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(ObjGoTo);
+        //Debug.Log(roundCount);
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
         //To which object can the AI go based on a dice roll.
-        switch (ObjGoTo)
+        if (GameObject.Find("TeddyBearGrenade(Clone)") != null)
         {
-            case 1:
-                {
-                    GoToAppliance(canInteractWO.stateWashingMash, "Washing Mashine");
-                }
-                break;
-
-            case 2:
-                {
-                    GoToAppliance(canInteractWO.stateDryer, "Dryer");
-                }
-                break;
-
-            /*case 3:
-                {
-                    GoToAppliance(canInteractWO.stateBob, "Bob");
-                }
-                break;*/
-
-            case 3:
-                {
-                    GoToAppliance(canInteractWO.stateFridge, "Fridge");
-                }
-                break;
-
-            case 4:
-                {
-                    GoToAppliance(canInteractWO.stateTV, "TV");
-                }
-                break;
-
-            case 5:
-                {
-                    GoToAppliance(canInteractWO.stateRadio, "Radio");
-                }
-                break;
-
-            case 6:
-                {
-                    GoToAppliance(canInteractWO.stateLamp, "Lamp");
-                }
-                break;
+            pos = GameObject.Find("TeddyBearGrenade(Clone)").transform.position;
+            navMeshAgent.SetDestination(pos);
         }
+        else
+        {
+            switch (ObjGoTo)
+            {
+                case 1:
+                    {
+                        GoToAppliance(canInteractWO.stateWashingMash, "Washing Mashine");
+                    }
+                    break;
+
+                case 2:
+                    {
+                        GoToAppliance(canInteractWO.stateDryer, "Dryer");
+                    }
+                    break;
+
+                /*case 3:
+                    {
+                        GoToAppliance(canInteractWO.stateBob, "Bob");
+                    }
+                    break;*/
+
+                case 3:
+                    {
+                        GoToAppliance(canInteractWO.stateFridge, "Fridge");
+                    }
+                    break;
+
+                case 4:
+                    {
+                        GoToAppliance(canInteractWO.stateTV, "TV");
+                    }
+                    break;
+
+                case 5:
+                    {
+                        GoToAppliance(canInteractWO.stateRadio, "Radio");
+                    }
+                    break;
+
+                case 6:
+                    {
+                        GoToAppliance(canInteractWO.stateLamp, "Lamp");
+                    }
+                    break;
+            }
+        }
+        
+        
         if (DistanceCheck() == true)
         {
             ObjID();
