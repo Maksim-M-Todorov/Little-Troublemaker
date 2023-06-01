@@ -13,9 +13,10 @@ public class MoneyCounter : MonoBehaviour
     public TMP_Text mCounterText;
     public Inventory inventory;
     [SerializeField] RoundController roundController;
+    public RanEventManager ranEventManager;
     public bool counterOn = false;
     public int Delay = 1;
-    private int moneyPerSec;
+    public int moneyPerSec;
     protected float timer;
     
     //Consumer State var
@@ -331,6 +332,22 @@ public class MoneyCounter : MonoBehaviour
             costLight_MasterBedroom /= 2;
             costLight_Kidsroom /= 2;
         }
+
+        //Events
+        if (ranEventManager.EventInflation)
+        {
+            moneyPerSec *= 1.25;
+        }
+
+        if (ranEventManager.EventPowerOutage)
+        {
+            moneyPerSec *= 0;
+        }
+        else
+        {
+            moneyPerSec *= 1;
+        }
+
         return (int)moneyPerSec;
     }
 }

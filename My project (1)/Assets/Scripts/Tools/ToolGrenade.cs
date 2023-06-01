@@ -31,10 +31,7 @@ public class ToolGrenade : MonoBehaviour
 
     void Explode()
     {
-        Debug.Log("Boom");
-
         Instantiate(explosionEffect, transform.position, transform.rotation);
-
         Destroy(gameObject);
     }
 }

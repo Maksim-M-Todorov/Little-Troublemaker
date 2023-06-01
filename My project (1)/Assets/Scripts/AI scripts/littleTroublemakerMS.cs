@@ -68,50 +68,60 @@ public class littleTroublemakerMS : MonoBehaviour
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
         //To which object can the AI go based on a dice roll.
-        switch (ObjGoTo)
+        if (GameObject.Find("TeddyBearGrenade(Clone)") != null)
         {
-            case 1:
-                {
-                    GoToAppliance(canInteractWO.stateWashingMash, "Washing Mashine");
-                }
-                break;
-
-            case 2:
-                {
-                    GoToAppliance(canInteractWO.stateDryer, "Dryer");
-                }
-                break;
-
-            /*case 3:
-                {
-                    GoToAppliance(canInteractWO.stateBob, "Bob");
-                }
-                break;*/
-
-            case 3:
-                {
-                    GoToAppliance(canInteractWO.stateFridge, "Fridge");
-                }
-                break;
-
-            case 4:
-                {
-                    GoToAppliance(canInteractWO.stateTV, "TV");
-                }
-                break;
-
-            case 5:
-                {
-                    GoToAppliance(canInteractWO.stateRadio, "Radio");
-                }
-                break;
-
-            case 6:
-                {
-                    GoToAppliance(canInteractWO.stateLamp, "Lamp");
-                }
-                break;
+            pos = GameObject.Find("TeddyBearGrenade(Clone)").transform.position;
+            navMeshAgent.SetDestination(pos);
         }
+        else
+        {
+            switch (ObjGoTo)
+            {
+                case 1:
+                    {
+                        GoToAppliance(canInteractWO.stateWashingMash, "Washing Mashine");
+                    }
+                    break;
+
+                case 2:
+                    {
+                        GoToAppliance(canInteractWO.stateDryer, "Dryer");
+                    }
+                    break;
+
+                /*case 3:
+                    {
+                        GoToAppliance(canInteractWO.stateBob, "Bob");
+                    }
+                    break;*/
+
+                case 3:
+                    {
+                        GoToAppliance(canInteractWO.stateFridge, "Fridge");
+                    }
+                    break;
+
+                case 4:
+                    {
+                        GoToAppliance(canInteractWO.stateTV, "TV");
+                    }
+                    break;
+
+                case 5:
+                    {
+                        GoToAppliance(canInteractWO.stateRadio, "Radio");
+                    }
+                    break;
+
+                case 6:
+                    {
+                        GoToAppliance(canInteractWO.stateLamp, "Lamp");
+                    }
+                    break;
+            }
+        }
+        
+        
         if (DistanceCheck() == true)
         {
             ObjID();
