@@ -20,19 +20,24 @@ public class RoundController : MonoBehaviour
     public TMP_Text roundClock;
     public float roundLenght = 120f;
     public bool roundComplete = false;
+    public int roundCount = 0;
 
 
     void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex != 2)
         { 
-        roundStart = true;
+            roundStart = true;
         }
         inventory.loadPlayerData();
+        roundCount = PlayerPrefs.GetInt("RoundsPlayed");
+        roundCount += 1;
+        PlayerPrefs.SetInt("RoundsPlayed", roundCount);
     }
 
     void Update()
     {
+        Debug.Log(roundCount);
         if (roundStart == true)
         {
             if (roundLenght > 0f)

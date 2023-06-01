@@ -98,7 +98,7 @@ public class RanEventManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(EventID);
+        //Debug.Log(EventID);
         countDown -= Time.deltaTime;
         if (countDown <= 0f)
         {

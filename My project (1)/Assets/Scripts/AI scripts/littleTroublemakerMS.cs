@@ -24,6 +24,7 @@ public class littleTroublemakerMS : MonoBehaviour
     protected float failsafetimer;
     private int failsafeDelay = 5;
 
+
     //Roll the dice at the start to decide first appliance and go to it.
     private void Start()
     {
@@ -64,7 +65,7 @@ public class littleTroublemakerMS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(ObjGoTo);
+        //Debug.Log(roundCount);
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
         //To which object can the AI go based on a dice roll.
