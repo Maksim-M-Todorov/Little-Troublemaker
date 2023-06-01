@@ -58,9 +58,4 @@ public class RoundController : MonoBehaviour
             //If continue button pressed fade level and go to next one
         }
     }
-    void StartRound()
-    {
-        roundStart = true;
-        moneyCounter.counterOn = true;
-    }
 }

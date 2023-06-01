@@ -23,14 +23,14 @@ public class BreakdownMenu : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        breakdownMenuText.text = "Breakdown <br>"
-                                 + "WashingMachine: " + moneyCounter.timeWashingMash + " * " + moneyCounter.costWashingMash + " = " + moneyCounter.timeWashingMash * moneyCounter.costWashingMash + "€" + "<br>"
-                                 + "Dryer: " + moneyCounter.timeDryer + " * " + moneyCounter.costDryer + " = " + moneyCounter.timeDryer * moneyCounter.costDryer + "€" + "<br>"
-                                 + "Fridge: " + moneyCounter.timeFridge + " * " + moneyCounter.costFridge + " = " + moneyCounter.timeFridge * moneyCounter.costFridge + "€" + "<br>"
-                                 + "Lamp: " + moneyCounter.timeLamp + " * " + moneyCounter.costLamp + " = " + moneyCounter.timeLamp * moneyCounter.costLamp + "€" + "<br>"
-                                 + "Radio: " + moneyCounter.timeRadio + " * " + moneyCounter.costRadio + " = " + moneyCounter.timeRadio * moneyCounter.costRadio + "€" + "<br>"
-                                 + "TV: " + moneyCounter.timeTV + " * " + moneyCounter.costTV + " = " + moneyCounter.timeTV * moneyCounter.costTV + "€" + "<br>"
-                                 + "Bob: " + moneyCounter.timeBob + " * " + moneyCounter.costBob + " = " + moneyCounter.timeBob * moneyCounter.costBob + "€" + "<br>";
+        breakdownMenuText.text = "Receipt <br>"
+                                 + "WashingMachine: " + moneyCounter.timeWashingMash + " s. * " + moneyCounter.costWashingMash + " €p/s = " + moneyCounter.timeWashingMash * moneyCounter.costWashingMash + "€" + "<br>"
+                                 + "Dryer: " + moneyCounter.timeDryer + " s. * " + moneyCounter.costDryer + " €p/s = " + moneyCounter.timeDryer * moneyCounter.costDryer + "€" + "<br>"
+                                 + "Fridge: " + moneyCounter.timeFridge + " s. * " + moneyCounter.costFridge + " €p/s = " + moneyCounter.timeFridge * moneyCounter.costFridge + "€" + "<br>"
+                                 + "Lamp: " + moneyCounter.timeLamp + " s. * " + moneyCounter.costLamp + " €p/s = " + moneyCounter.timeLamp * moneyCounter.costLamp + "€" + "<br>"
+                                 + "Radio: " + moneyCounter.timeRadio + " s. * " + moneyCounter.costRadio + " €p/s = " + moneyCounter.timeRadio * moneyCounter.costRadio + "€" + "<br>"
+                                 + "TV: " + moneyCounter.timeTV + " s. * " + moneyCounter.costTV + " €p/s = " + moneyCounter.timeTV * moneyCounter.costTV + "€" + "<br>"
+                                 + "Bob: " + moneyCounter.timeBob + " s. * " + moneyCounter.costBob + " €p/s = " + moneyCounter.timeBob * moneyCounter.costBob + "€" + "<br>";
 
     }
 }

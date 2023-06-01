@@ -14,7 +14,7 @@ public class littleTroublemakerMS : MonoBehaviour
     [SerializeField] private LayerMask _interactableMask;
 
     private readonly Collider[] _colliders = new Collider[3];
-    [SerializeField] private int _numFound;
+    public int _numFound;
     private IInteractable _interactable;
 
     private Vector3 pos;
@@ -43,7 +43,6 @@ public class littleTroublemakerMS : MonoBehaviour
             {
                 _interactable = _colliders[0].GetComponent<IInteractable>();
                 _interactable.InteractAI(this);
-                ObjID();
             }
             else
             {
@@ -54,7 +53,11 @@ public class littleTroublemakerMS : MonoBehaviour
         {
             ObjID();
             navMeshAgent.SetDestination(pos);
-
+            if (app_state == true)
+            {
+                pos = GameObject.Find("RestingPlace").transform.position;
+                navMeshAgent.SetDestination(pos);
+            }
         }
     }
 
