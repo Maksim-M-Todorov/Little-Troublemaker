@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class RanEventManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class RanEventManager : MonoBehaviour
                     kid3.SetActive(true);
                     kid4.SetActive(true);
                     BPEI.SetActive(true);
+                    countDown = delay;
                 }
             break;
 
@@ -87,6 +89,7 @@ public class RanEventManager : MonoBehaviour
                     //Inflation, increase money per sec by 25%
                     EventInflation = true;
                     IFI.SetActive(true);
+                    countDown = delay;
                 }
             break;
 
@@ -99,6 +102,11 @@ public class RanEventManager : MonoBehaviour
         countDown -= Time.deltaTime;
         if (countDown <= 0f)
         {
+            if (EventID == 1)
+            {
+                BPEI.SetActive(false);
+            }
+            
             if (EventID == 2)
             {
                 kid.SetActive(true);
@@ -114,6 +122,46 @@ public class RanEventManager : MonoBehaviour
             {
                 EventPowerOutage = false;
                 POI.SetActive(false);
+                EventID = 0;
+                moneyCounter.stateWashingMash = false;
+                moneyCounter.stateDryer = false;
+                moneyCounter.stateBob = false;
+                moneyCounter.stateRadio = false;
+                moneyCounter.stateFridge = false;
+                moneyCounter.stateTV = false;
+                moneyCounter.stateLamp = false;
+                moneyCounter.stateSink_Toilet = false;
+                moneyCounter.stateGamingSystem = false;
+                moneyCounter.stateKettle = false;
+                moneyCounter.stateCounter_Sink_Kitchen = false;
+                moneyCounter.stateCounter_Dishwasher_Kitchen = false;
+                moneyCounter.stateStove = false;
+                moneyCounter.stateMicrowave = false;
+                moneyCounter.stateBlender = false;
+                moneyCounter.stateIron = false;
+                moneyCounter.stateVacuum = false;
+                moneyCounter.stateShower = false;
+                moneyCounter.stateSink_Bathroom = false;
+                moneyCounter.stateRadiator_MasterBedroom = false;
+                moneyCounter.stateIpad = false;
+                moneyCounter.stateToyTrain = false;
+                moneyCounter.stateRadiator_Kidsroom = false;
+                moneyCounter.stateComputer = false;
+                moneyCounter.stateLight_Entry = false;
+                moneyCounter.stateLight_Toilet = false;
+                moneyCounter.stateLight_Livingroom = false;
+                moneyCounter.stateLight_Diningroom = false;
+                moneyCounter.stateLight_Kitchen = false;
+                moneyCounter.stateLight_Laundryroom = false;
+                moneyCounter.stateLight_Bathroom = false;
+                moneyCounter.stateLight_MasterBedroom = false;
+                moneyCounter.stateLight_Kidsroom = false;
+                moneyCounter.counterOn = false;
+            }
+
+            if (EventID == 5)
+            {
+                IFI.SetActive(false);
             }
         }
     }

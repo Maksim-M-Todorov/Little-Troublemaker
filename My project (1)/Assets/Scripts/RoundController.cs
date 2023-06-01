@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class RoundController : MonoBehaviour
     public GameObject InteractablesOB;
     public MoneyCounter moneyCounter;
     public PauseMenu pauseMenu;
+    public TMP_Text roundClock;
     public float roundLenght = 120f;
     public bool roundComplete = false;
 
@@ -57,5 +59,7 @@ public class RoundController : MonoBehaviour
             //Display Activate Breakdown Menu
             //If continue button pressed fade level and go to next one
         }
+
+       roundClock.text = ((int)roundLenght).ToString();
     }
 }
