@@ -28,7 +28,7 @@ public class ISSink_Bathroom : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject newSpawnedObject = Instantiate(spawnItem, transform.position, Quaternion.Euler(-90, 0, 0));
+        GameObject newSpawnedObject = Instantiate(spawnItem, transform.position, Quaternion.Euler(-270, 0, 0));
         newSpawnedObject.transform.parent = transform;
     }
 

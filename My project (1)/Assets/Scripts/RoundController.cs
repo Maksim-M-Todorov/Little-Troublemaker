@@ -1,12 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class RoundController : MonoBehaviour
 {
@@ -31,8 +25,6 @@ public class RoundController : MonoBehaviour
         }
         inventory.loadPlayerData();
         roundCount = PlayerPrefs.GetInt("RoundsPlayed");
-        roundCount += 1;
-        PlayerPrefs.SetInt("RoundsPlayed", roundCount);
     }
 
     void Update()
@@ -65,6 +57,16 @@ public class RoundController : MonoBehaviour
             //If continue button pressed fade level and go to next one
         }
 
-       roundClock.text = ((int)roundLenght).ToString();
+        if (roundClock != null)
+        {
+            roundClock.text = ((int)roundLenght).ToString();
+        }
     }
+
+    public void AddToRoundCount()
+    {
+        roundCount++;
+        PlayerPrefs.SetInt("RoundsPlayed", roundCount);
+    }
+
 }

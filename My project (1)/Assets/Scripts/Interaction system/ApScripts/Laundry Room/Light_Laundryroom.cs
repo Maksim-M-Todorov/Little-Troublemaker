@@ -12,7 +12,7 @@ public class Light_Laundryroom : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        if (moneyCounter.stateIron == false)
+        if (moneyCounter.stateLight_Laundryroom == false)
         {
             moneyCounter.stateLight_Laundryroom = true;
             moneyCounter.numLight_Laundryroom = 1;

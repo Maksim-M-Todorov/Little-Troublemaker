@@ -8,6 +8,7 @@ public class littleTroublemakerMS : MonoBehaviour
 {
     public MoneyCounter canInteractWO;
     public NavMeshAgent navMeshAgent;
+    public RoundController roundController;
 
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
@@ -94,47 +95,211 @@ public class littleTroublemakerMS : MonoBehaviour
         {
             switch (ObjGoTo)
             {
+
+                case -10:
+                    {
+                        GoToAppliance(canInteractWO.stateLamp, "Lamp");
+                    }
+                    break;
+
+                case -9:
+                    {
+                        GoToAppliance(canInteractWO.stateLamp_MasterBedroom, "Lamp Master Bedroom");
+                    }
+                    break;
+
+                case -8:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Entry, "Light Entry");
+                    }
+                    break;
+
+                case -7:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Toilet, "Light Toilet");
+                    }
+                    break;
+
+                case -6:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Livingroom, "Light Livingroom");
+                    }
+                    break;
+
+                case -5:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Diningroom, "Light Diningroom");
+                    }
+                    break;
+
+                case -4:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Kitchen, "Light Kitchen");
+                    }
+                    break;
+
+                case -3:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Laundryroom, "Light Laundryroom");
+                    }
+                    break;
+
+                case -2:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Bathroom, "Light Bathroom");
+                    }
+                    break;
+
+                case -1:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_MasterBedroom, "Light Master Bedroom");
+                    }
+                    break;
+
+                case 0:
+                    {
+                        GoToAppliance(canInteractWO.stateLight_Kidsroom, "Light Kidsroom");
+                    }
+                    break;
+
                 case 1:
                     {
-                        GoToAppliance(canInteractWO.stateWashingMash, "Washing Mashine");
+                        GoToAppliance(canInteractWO.stateToyTrain, "ToyTrain");
                     }
                     break;
 
                 case 2:
                     {
-                        GoToAppliance(canInteractWO.stateDryer, "Dryer");
+                        GoToAppliance(canInteractWO.stateBob, "Bob");
                     }
                     break;
 
-                /*case 3:
-                    {
-                        GoToAppliance(canInteractWO.stateBob, "Bob");
-                    }
-                    break;*/
-
                 case 3:
                     {
-                        GoToAppliance(canInteractWO.stateFridge, "Fridge");
+                        GoToAppliance(canInteractWO.stateGamingSystem, "Game Console");
                     }
                     break;
 
                 case 4:
                     {
-                        GoToAppliance(canInteractWO.stateTV, "TV");
+                        GoToAppliance(canInteractWO.stateVacuum, "Vacuum");
                     }
                     break;
 
                 case 5:
                     {
-                        GoToAppliance(canInteractWO.stateRadio, "Radio");
+                        GoToAppliance(canInteractWO.stateCounter_Dishwasher_Kitchen, "Dishwasher");
                     }
                     break;
 
                 case 6:
                     {
-                        GoToAppliance(canInteractWO.stateLamp, "Lamp");
+                        GoToAppliance(canInteractWO.stateRadio, "Radio");
                     }
                     break;
+
+                case 7:
+                    {
+                        GoToAppliance(canInteractWO.stateIpad, "Ipad");
+                    }
+                    break;
+                    
+                case 8:
+                    {
+                        GoToAppliance(canInteractWO.stateKettle, "Kettle");
+                    }
+                    break;
+                          
+                case 9:
+                    {
+                        GoToAppliance(canInteractWO.stateFridge, "Fridge");
+                    }
+                    break;
+                    
+                case 10:
+                    {
+                        GoToAppliance(canInteractWO.stateWashingMash, "Washing Mashine");
+                    }
+                    break;
+                    
+                case 11:
+                    {
+                        GoToAppliance(canInteractWO.stateDryer, "Dryer");
+                    }
+                    break;
+                    
+                case 12:
+                    {
+                        GoToAppliance(canInteractWO.stateTV, "TV");
+                    }
+                    break;
+                    
+                case 13:
+                    {
+                        GoToAppliance(canInteractWO.stateBlender, "Blender");
+                    }
+                    break;
+                    
+                case 14:
+                    {
+                        GoToAppliance(canInteractWO.stateStove, "Stove");
+                    }
+                    break;
+                    
+                case 15:
+                    {
+                        GoToAppliance(canInteractWO.stateRadiator_Hall, "Radiator Hall");
+                    }
+                    break;
+                    
+                case 16:
+                    {
+                        GoToAppliance(canInteractWO.stateRadiator_Kidsroom, "Radiator Kids Room");
+                    }
+                    break;
+      
+                case 17:
+                    {
+                        GoToAppliance(canInteractWO.stateRadiator_MasterBedroom, "Radiator Master Bedroom");
+                    }
+                    break;
+
+                case 18:
+                    {
+                        GoToAppliance(canInteractWO.stateShower, "Shower");
+                    }
+                    break;
+                    
+                case 19:
+                    {
+                        GoToAppliance(canInteractWO.stateMicrowave, "Microwave");
+                    }
+                    break;
+                          
+                case 20:
+                    {
+                        GoToAppliance(canInteractWO.stateIron, "Iron");
+                    }
+                    break;
+                                   
+                case 21:
+                    {
+                        GoToAppliance(canInteractWO.stateCounter_Sink_Kitchen, "Kitchen Sink");
+                    }
+                    break;
+                                       
+                case 22:
+                    {
+                        GoToAppliance(canInteractWO.stateSink_Toilet, "Toilet Sink");
+                    }
+                    break;
+                                          
+                case 23:
+                    {
+                        GoToAppliance(canInteractWO.stateSink_Bathroom, "Bathroom Sink");
+                    }
+                    break;
+
             }
         }
         
@@ -181,7 +346,26 @@ public class littleTroublemakerMS : MonoBehaviour
     //Function to roll a dice and decide to which object to go.
    private int ObjID()
     {
-        ObjGoTo = Random.Range(1, 7);
+        ObjGoTo = Random.Range(8, 17);
         return ObjGoTo;
+
+       //switch (roundController.roundCount) //UNCOMMENT WHEN ALL ALPIANCES ARE AVAILABLE IN THE GAME SPACE
+       //{
+       //    case 0:
+       //        ObjGoTo = Random.Range(-10, 6);
+       //        break;
+       //
+       //    case 1:
+       //        ObjGoTo = Random.Range(-10, 10);
+       //        break;
+       //
+       //    case 2:
+       //        ObjGoTo = Random.Range(-10, 15);
+       //        break; 
+       //    
+       //    case 3:
+       //        ObjGoTo = Random.Range(-10, 24);
+       //        break;
+       //}
     }
 }

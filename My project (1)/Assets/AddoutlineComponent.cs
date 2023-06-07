@@ -21,7 +21,7 @@ public class AddoutlineComponent : MonoBehaviour
     }
     public void ActivateOutline(bool appState)
     {
-        if (appState == true && inventory.xRayGoggles == true)
+        if (appState == false && inventory.xRayGoggles == true)
         {
             Outline outline = gameObject.GetComponent<Outline>();
             outline.enabled = true;

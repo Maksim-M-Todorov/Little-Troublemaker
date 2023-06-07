@@ -53,8 +53,8 @@ public class Inventory : MonoBehaviour
     public int FridgeTier = 0;
     //Television
     public int TelevisionTier = 0;
-    //Oven
-    public int OvenTier = 0;
+    //Stove
+    public int StoveTier = 0;
     //Washing Machine
     public int WashingMachineTier = 0;
     //Dryer
@@ -96,7 +96,7 @@ public class Inventory : MonoBehaviour
         PlayerPrefs.SetInt("DishWasherTier", DishWasherTier);
         PlayerPrefs.SetInt("DryerTier", DryerTier);
         PlayerPrefs.SetInt("FridgeTier", FridgeTier);
-        PlayerPrefs.SetInt("OvenTier", OvenTier);
+        PlayerPrefs.SetInt("StoveTier", StoveTier);
         PlayerPrefs.SetInt("TelevisionTier", TelevisionTier);
         PlayerPrefs.SetInt("WashingMachineTier", WashingMachineTier);
 
@@ -124,7 +124,7 @@ public class Inventory : MonoBehaviour
         DishWasherTier = PlayerPrefs.GetInt("DishWasherTier");
         DryerTier = PlayerPrefs.GetInt("DryerTier");
         FridgeTier = PlayerPrefs.GetInt("FridgeTier");
-        OvenTier = PlayerPrefs.GetInt("OvenTier");
+        StoveTier = PlayerPrefs.GetInt("StoveTier");
         TelevisionTier = PlayerPrefs.GetInt("TelevisionTier");
         WashingMachineTier = PlayerPrefs.GetInt("WashingMachineTier");
 
