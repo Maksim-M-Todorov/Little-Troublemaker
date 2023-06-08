@@ -299,6 +299,12 @@ public class littleTroublemakerMS : MonoBehaviour
                         GoToAppliance(canInteractWO.stateSink_Bathroom, "Bathroom Sink");
                     }
                     break;
+                                          
+                case 24:
+                    {
+                        GoToAppliance(canInteractWO.stateComputer, "Computer");
+                    }
+                    break;
 
             }
         }
