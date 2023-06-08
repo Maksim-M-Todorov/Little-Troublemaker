@@ -128,7 +128,7 @@ public class littleTroublemakerMS : MonoBehaviour
 
                 case -5:
                     {
-                        GoToAppliance(canInteractWO.stateLight_Diningroom, "Light Diningroom");
+                        GoToAppliance(canInteractWO.stateLight_Diningroom, "Light Hall");
                     }
                     break;
 

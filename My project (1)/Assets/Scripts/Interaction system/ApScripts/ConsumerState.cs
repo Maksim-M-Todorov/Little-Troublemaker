@@ -39,5 +39,17 @@ public class ConsumerState : MonoBehaviour, IInteractable
 
         }
         return true;
+    } 
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (_prompt == "that")
+        {
+
+        }
+        else
+        {
+
+        }
+        return true;
     }
 }

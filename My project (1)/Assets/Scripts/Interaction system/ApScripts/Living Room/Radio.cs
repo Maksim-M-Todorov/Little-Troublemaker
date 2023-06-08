@@ -38,6 +38,16 @@ public class Radio : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateRadio == true)
+        {
+            moneyCounter.stateRadio = false;
+            moneyCounter.numRadio = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateRadio == true && inventory.xRayGoggles == true)

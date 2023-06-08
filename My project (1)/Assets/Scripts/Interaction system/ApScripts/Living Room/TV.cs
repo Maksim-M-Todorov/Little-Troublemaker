@@ -16,13 +16,11 @@ public class TV : MonoBehaviour, IInteractable
         {
             moneyCounter.stateTV = true;
             moneyCounter.numTV = 1;
-            _prompt = "Switch Off";
         }
         else if (moneyCounter.stateTV == true)
         {
             moneyCounter.stateTV = false;
             moneyCounter.numTV = 0;
-            _prompt = "Switch On";
         }
         return true;
     }
@@ -33,6 +31,16 @@ public class TV : MonoBehaviour, IInteractable
         {
             moneyCounter.stateTV = true;
             moneyCounter.numTV = 1;
+        }
+        return true;
+    }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateTV == true)
+        {
+            moneyCounter.stateTV = false;
+            moneyCounter.numTV = 0;
         }
         return true;
     }

@@ -28,4 +28,8 @@ public class Door : MonoBehaviour, IInteractable
     {
         throw new System.NotImplementedException();
     }
+    public bool InteractBullet(BulletScript interactor)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -34,6 +34,16 @@ public class Ipad : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateIpad == true)
+        {
+            moneyCounter.stateIpad = false;
+            moneyCounter.numIpad = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateIpad == true && inventory.xRayGoggles == true)

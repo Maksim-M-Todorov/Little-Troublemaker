@@ -34,6 +34,16 @@ public class Light_Diningroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_Diningroom == true)
+        {
+            moneyCounter.stateLight_Diningroom = false;
+            moneyCounter.numLight_Diningroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_Diningroom == true && inventory.xRayGoggles == true)

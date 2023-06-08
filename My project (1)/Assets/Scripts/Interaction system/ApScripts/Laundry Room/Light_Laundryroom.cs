@@ -34,6 +34,16 @@ public class Light_Laundryroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_Laundryroom == true)
+        {
+            moneyCounter.stateLight_Laundryroom = false;
+            moneyCounter.numLight_Laundryroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_Laundryroom == true && inventory.xRayGoggles == true)

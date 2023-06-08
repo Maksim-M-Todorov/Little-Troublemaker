@@ -34,6 +34,16 @@ public class Kettle : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateKettle == true)
+        {
+            moneyCounter.stateKettle = false;
+            moneyCounter.numKettle = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateKettle == true && inventory.xRayGoggles == true)

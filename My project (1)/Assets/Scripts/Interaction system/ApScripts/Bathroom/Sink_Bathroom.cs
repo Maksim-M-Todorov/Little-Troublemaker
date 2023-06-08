@@ -34,6 +34,16 @@ public class Sink_Bathroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateSink_Bathroom == true)
+        {
+            moneyCounter.stateSink_Bathroom = false;
+            moneyCounter.numSink_Bathroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateSink_Bathroom == true && inventory.xRayGoggles == true)

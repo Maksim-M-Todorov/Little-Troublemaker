@@ -34,6 +34,15 @@ public class GamingSystem : MonoBehaviour, IInteractable
         }
         return true;
     }
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateGamingSystem == true)
+        {
+            moneyCounter.stateGamingSystem = false;
+            moneyCounter.numGamingSystem = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateGamingSystem == true && inventory.xRayGoggles == true)

@@ -34,6 +34,16 @@ public class Light_Toilet : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_Toilet == true)
+        {
+            moneyCounter.stateLight_Toilet = false;
+            moneyCounter.numLight_Toilet = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_Toilet == true && inventory.xRayGoggles == true)

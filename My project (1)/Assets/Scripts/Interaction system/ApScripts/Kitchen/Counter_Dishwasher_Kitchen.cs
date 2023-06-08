@@ -34,6 +34,16 @@ public class Counter_Dishwasher_Kitchen : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateCounter_Dishwasher_Kitchen == true)
+        {
+            moneyCounter.stateCounter_Dishwasher_Kitchen = false;
+            moneyCounter.numCounter_Dishwasher_Kitchen = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateCounter_Dishwasher_Kitchen == true && inventory.xRayGoggles == true)

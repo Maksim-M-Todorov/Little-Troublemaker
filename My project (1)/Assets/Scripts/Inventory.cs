@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
 
     //Nerf Gun
     public bool NerfGun = false;
-    //int NerfGunUses = 3;
+    public int NerfGunUses = 10;
 
     //Power Outlet Blockers
     public bool xRayGoggles = false;
@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
 
     //Energy Drink
     public bool EnergyDrink = false;
-    //int EnergyDrinkUses = 3;
+    public int EnergyDrinkUses = 5;
     //==============================================================
 
 
@@ -83,7 +83,9 @@ public class Inventory : MonoBehaviour
         PlayerPrefs.SetInt("Teddybear", boolToInt(Teddybear));
         PlayerPrefs.SetInt("TeddybearUses", TeddybearUses);
         PlayerPrefs.SetInt("NerfGun", boolToInt(NerfGun));
+        PlayerPrefs.SetInt("NerfGunUses", NerfGunUses);
         PlayerPrefs.SetInt("EnergyDrink", boolToInt(EnergyDrink));
+        PlayerPrefs.SetInt("EnergyDrinkUses", EnergyDrinkUses);
         PlayerPrefs.SetInt("xRayGoggles", boolToInt(xRayGoggles));
 
         //Save Player House Upgrades
@@ -111,7 +113,9 @@ public class Inventory : MonoBehaviour
         Teddybear = intToBool(PlayerPrefs.GetInt("Teddybear", 0));
         TeddybearUses = PlayerPrefs.GetInt("TeddybearUses");
         NerfGun = intToBool(PlayerPrefs.GetInt("NerfGun", 0));
+        NerfGunUses = PlayerPrefs.GetInt("NerfGunUses");
         EnergyDrink = intToBool(PlayerPrefs.GetInt("EnergyDrink", 0));
+        EnergyDrinkUses = PlayerPrefs.GetInt("EnergyDrinkUses");
         xRayGoggles = intToBool(PlayerPrefs.GetInt("xRayGoggles", 0));
 
         //Load Player House Upgrades

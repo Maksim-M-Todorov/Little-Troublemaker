@@ -34,6 +34,16 @@ public class Counter_Sink_Kitchen : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateCounter_Sink_Kitchen == true)
+        {
+            moneyCounter.stateCounter_Sink_Kitchen = false;
+            moneyCounter.numCounter_Sink_Kitchen = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateCounter_Sink_Kitchen == true && inventory.xRayGoggles == true)

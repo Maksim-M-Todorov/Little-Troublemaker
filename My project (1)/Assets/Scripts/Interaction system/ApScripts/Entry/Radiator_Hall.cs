@@ -34,6 +34,16 @@ public class Radiator_Hall : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateRadiator_Hall == true)
+        {
+            moneyCounter.stateRadiator_Hall = false;
+            moneyCounter.numRadiator_Hall = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateRadiator_Hall == true && inventory.xRayGoggles == true)

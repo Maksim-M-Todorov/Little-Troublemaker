@@ -34,6 +34,16 @@ public class Blender : MonoBehaviour,IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateBlender == true)
+        {
+            moneyCounter.stateBlender = false;
+            moneyCounter.numBlender = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateBlender == true && inventory.xRayGoggles == true)

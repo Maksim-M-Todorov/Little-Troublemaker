@@ -34,6 +34,16 @@ public class Light_Entry : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_Entry == true)
+        {
+            moneyCounter.stateLight_Entry = false;
+            moneyCounter.numLight_Entry = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_Entry == true && inventory.xRayGoggles == true)

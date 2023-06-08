@@ -34,6 +34,16 @@ public class Stove : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateStove == true)
+        {
+            moneyCounter.stateStove = false;
+            moneyCounter.numStove = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateStove == true && inventory.xRayGoggles == true)

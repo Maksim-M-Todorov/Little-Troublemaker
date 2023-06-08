@@ -34,6 +34,16 @@ public class Light_Bathroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_Bathroom == true)
+        {
+            moneyCounter.stateLight_Bathroom = false;
+            moneyCounter.numLight_Bathroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_Bathroom == true && inventory.xRayGoggles == true)

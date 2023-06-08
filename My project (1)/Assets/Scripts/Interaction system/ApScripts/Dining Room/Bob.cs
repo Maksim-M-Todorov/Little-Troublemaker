@@ -34,6 +34,16 @@ public class Bob : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateBob == true)
+        {
+            moneyCounter.stateBob = false;
+            moneyCounter.numBob = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateBob == true && inventory.xRayGoggles == true)

@@ -36,6 +36,16 @@ public class Fridge : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateFridge == true)
+        {
+            moneyCounter.stateFridge = false;
+            moneyCounter.numFridge = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateFridge == true && inventory.xRayGoggles == true)

@@ -34,6 +34,15 @@ public class WashingMash : MonoBehaviour, IInteractable
         }
         return true;
     }
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateWashingMash == true)
+        {
+            moneyCounter.stateWashingMash = false;
+            moneyCounter.numWashingMash = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateWashingMash == true && inventory.xRayGoggles == true)

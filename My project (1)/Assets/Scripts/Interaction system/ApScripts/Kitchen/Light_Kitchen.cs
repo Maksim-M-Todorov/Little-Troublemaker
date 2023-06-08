@@ -34,6 +34,16 @@ public class Light_Kitchen : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_Kitchen == true)
+        {
+            moneyCounter.stateLight_Kitchen = false;
+            moneyCounter.numLight_Kitchen = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_Kitchen == true && inventory.xRayGoggles == true)

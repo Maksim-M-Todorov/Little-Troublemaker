@@ -34,6 +34,16 @@ public class Light_Kidsroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_Kidsroom == true)
+        {
+            moneyCounter.stateLight_Kidsroom = false;
+            moneyCounter.numLight_Kidsroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_Kidsroom == true && inventory.xRayGoggles == true)

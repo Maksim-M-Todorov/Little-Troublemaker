@@ -34,6 +34,16 @@ public class Light_Masterbedroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLight_MasterBedroom == true)
+        {
+            moneyCounter.stateLight_MasterBedroom = false;
+            moneyCounter.numLight_MasterBedroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLight_MasterBedroom == true && inventory.xRayGoggles == true)

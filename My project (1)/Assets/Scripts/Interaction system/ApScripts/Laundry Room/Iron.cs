@@ -34,6 +34,16 @@ public class Iron : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateIron == true)
+        {
+            moneyCounter.stateIron = false;
+            moneyCounter.numIron = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateIron == true && inventory.xRayGoggles == true)

@@ -17,12 +17,14 @@ public class UpgradeTools : MonoBehaviour
     public void NerfGun()
     {
         inv.NerfGun = true;
+        inv.NerfGunUses = 10;
         inv.currentMoney -= 250;
     }
 
     public void EnergyDrink()
     {
         inv.EnergyDrink = true;
+        inv.EnergyDrinkUses = 5;
         inv.currentMoney -= 400;
     }
 

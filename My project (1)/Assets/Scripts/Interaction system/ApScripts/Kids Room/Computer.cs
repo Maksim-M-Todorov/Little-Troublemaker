@@ -34,6 +34,16 @@ public class Computer : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateComputer == true)
+        {
+            moneyCounter.stateComputer = false;
+            moneyCounter.numComputer = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateComputer == true && inventory.xRayGoggles == true)

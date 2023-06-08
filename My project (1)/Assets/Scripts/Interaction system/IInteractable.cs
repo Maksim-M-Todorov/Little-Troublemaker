@@ -9,4 +9,5 @@ public interface IInteractable
 
     public bool Interact(Interactor interactor);
     public bool InteractAI(littleTroublemakerMS interactor);
+    public bool InteractBullet(BulletScript interactor);
 }

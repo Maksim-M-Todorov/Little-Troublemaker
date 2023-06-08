@@ -36,6 +36,16 @@ public class Lamp : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateLamp == true)
+        {
+            moneyCounter.stateLamp = false;
+            moneyCounter.numLamp = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateLamp == true && inventory.xRayGoggles == true)

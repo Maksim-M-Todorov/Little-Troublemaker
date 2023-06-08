@@ -34,6 +34,16 @@ public class Shower : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateShower == true)
+        {
+            moneyCounter.stateShower = false;
+            moneyCounter.numShower = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateShower == true && inventory.xRayGoggles == true)

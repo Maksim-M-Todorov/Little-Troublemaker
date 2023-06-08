@@ -34,6 +34,16 @@ public class ToyTrain : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateToyTrain == true)
+        {
+            moneyCounter.stateToyTrain = false;
+            moneyCounter.numToyTrain = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateToyTrain == true && inventory.xRayGoggles == true)

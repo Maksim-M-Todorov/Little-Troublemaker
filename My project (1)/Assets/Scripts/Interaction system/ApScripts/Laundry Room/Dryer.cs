@@ -36,6 +36,16 @@ public class Dryer : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateDryer == true)
+        {
+            moneyCounter.stateDryer = false;
+            moneyCounter.numDryer = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateDryer == true && inventory.xRayGoggles == true)

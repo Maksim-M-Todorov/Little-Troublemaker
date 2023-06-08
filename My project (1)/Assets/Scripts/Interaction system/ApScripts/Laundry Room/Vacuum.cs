@@ -34,6 +34,16 @@ public class Vacuum : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateVacuum == true)
+        {
+            moneyCounter.stateVacuum = false;
+            moneyCounter.numVacuum = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateVacuum == true && inventory.xRayGoggles == true)

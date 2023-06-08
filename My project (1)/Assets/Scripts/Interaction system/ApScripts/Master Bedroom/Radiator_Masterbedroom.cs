@@ -34,6 +34,16 @@ public class Radiator_Masterbedroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateRadiator_MasterBedroom == true)
+        {
+            moneyCounter.stateRadiator_MasterBedroom = false;
+            moneyCounter.numRadiator_MasterBedroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateRadiator_MasterBedroom == true && inventory.xRayGoggles == true)

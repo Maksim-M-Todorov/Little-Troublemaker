@@ -34,6 +34,16 @@ public class Microwave : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateMicrowave == true)
+        {
+            moneyCounter.stateMicrowave = false;
+            moneyCounter.numMicrowave = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateMicrowave == true && inventory.xRayGoggles == true)

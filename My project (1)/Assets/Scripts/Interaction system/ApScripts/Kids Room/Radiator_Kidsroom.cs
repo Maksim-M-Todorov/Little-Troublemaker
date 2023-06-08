@@ -34,6 +34,16 @@ public class Radiator_Kidsroom : MonoBehaviour, IInteractable
         }
         return true;
     }
+
+    public bool InteractBullet(BulletScript interactor)
+    {
+        if (moneyCounter.stateRadiator_Kidsroom == true)
+        {
+            moneyCounter.stateRadiator_Kidsroom = false;
+            moneyCounter.numRadiator_Kidsroom = 0;
+        }
+        return true;
+    }
     private void LateUpdate()
     {
         if (moneyCounter.stateRadiator_Kidsroom == true && inventory.xRayGoggles == true)

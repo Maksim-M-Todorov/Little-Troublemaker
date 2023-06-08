@@ -29,7 +29,7 @@ public class RoundController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(roundCount);
+        //Debug.Log(roundCount);
         if (roundStart == true)
         {
             if (roundLenght > 0f)
