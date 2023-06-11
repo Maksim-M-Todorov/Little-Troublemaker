@@ -8,6 +8,7 @@ public class ToolsHolderControls : MonoBehaviour
 
     public GameObject nerfgun;
     public GameObject energydrink;
+    public EnergyDrinkScript energydrinkScript;
 
     // Update is called once per frame
     void Update()
@@ -27,6 +28,7 @@ public class ToolsHolderControls : MonoBehaviour
         }
         else
         {
+            if (energydrinkScript.readyToDrink)
             energydrink.SetActive(false);
         }
     }

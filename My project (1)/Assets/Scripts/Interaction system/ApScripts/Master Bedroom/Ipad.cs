@@ -44,6 +44,7 @@ public class Ipad : MonoBehaviour, IInteractable
         }
         return true;
     }
+
     private void LateUpdate()
     {
         if (moneyCounter.stateIpad == true && inventory.xRayGoggles == true)

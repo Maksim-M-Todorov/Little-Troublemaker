@@ -81,7 +81,8 @@ public class littleTroublemakerMS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(roundCount);
+        Debug.Log(roundController.roundCount);
+        //Debug.Log(ObjGoTo);
         //Number of interactables in the collision hitbox sphere
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
@@ -164,7 +165,7 @@ public class littleTroublemakerMS : MonoBehaviour
 
                 case 1:
                     {
-                        GoToAppliance(canInteractWO.stateToyTrain, "ToyTrain");
+                        GoToAppliance(canInteractWO.stateToyTrain, "Toy Train");
                     }
                     break;
 
@@ -352,26 +353,27 @@ public class littleTroublemakerMS : MonoBehaviour
     //Function to roll a dice and decide to which object to go.
    private int ObjID()
     {
-        ObjGoTo = Random.Range(8, 17);
-        return ObjGoTo;
+       // ObjGoTo = Random.Range(2, 3);
+        //return ObjGoTo;
 
-       //switch (roundController.roundCount) //UNCOMMENT WHEN ALL ALPIANCES ARE AVAILABLE IN THE GAME SPACE
-       //{
-       //    case 0:
-       //        ObjGoTo = Random.Range(-10, 6);
-       //        break;
-       //
-       //    case 1:
-       //        ObjGoTo = Random.Range(-10, 10);
-       //        break;
-       //
-       //    case 2:
-       //        ObjGoTo = Random.Range(-10, 15);
-       //        break; 
-       //    
-       //    case 3:
-       //        ObjGoTo = Random.Range(-10, 24);
-       //        break;
-       //}
+      switch (roundController.roundCount) //UNCOMMENT WHEN ALL ALPIANCES ARE AVAILABLE IN THE GAME SPACE
+      {
+          case 0:
+              ObjGoTo = Random.Range(-10, 6);
+              break;
+      
+          case 1:
+              ObjGoTo = Random.Range(-10, 10);
+              break;
+      
+          case 2:
+              ObjGoTo = Random.Range(-10, 15);
+              break; 
+          
+          case 3:
+              ObjGoTo = Random.Range(-10, 24);
+              break;
+      }
+        return ObjGoTo;
     }
 }

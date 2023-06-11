@@ -7,6 +7,7 @@ public class ToyTrain : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public MoneyCounter moneyCounter;
     public Inventory inventory;
+    public Animator animator;
 
     public string InteractionPrompt => _prompt;
 
@@ -55,6 +56,17 @@ public class ToyTrain : MonoBehaviour, IInteractable
         {
             Outline outline = gameObject.GetComponent<Outline>();
             outline.enabled = false;
+        }
+    }
+    private void Update()
+    {
+        if (moneyCounter.stateToyTrain)
+        {
+            animator.SetTrigger("StartTrain");
+        }
+        else
+        {
+            animator.SetTrigger("Empty");
         }
     }
 }

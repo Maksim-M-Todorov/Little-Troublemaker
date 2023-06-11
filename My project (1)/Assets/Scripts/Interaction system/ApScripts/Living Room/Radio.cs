@@ -9,6 +9,12 @@ public class Radio : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public MoneyCounter moneyCounter;
     public Inventory inventory;
+    public RoundController roundController;
+
+    public AudioSource day0Audio;
+    public AudioSource day1Audio;
+    public AudioSource day2Audio;
+    public AudioSource day3Audio;
 
     public string InteractionPrompt => _prompt;
 
@@ -59,6 +65,44 @@ public class Radio : MonoBehaviour, IInteractable
         {
             Outline outline = gameObject.GetComponent<Outline>();
             outline.enabled = false;
+        }
+    }
+    private void Start()
+    {
+        day0Audio.Play(0);
+        day1Audio.Play(0);
+        day2Audio.Play(0);
+        day3Audio.Play(0);
+    }
+    private void Update()
+    {
+        if (moneyCounter.stateRadio && Time.timeScale != 0)
+        {
+            switch (roundController.roundCount)
+            {
+                case 0:
+                    day0Audio.UnPause();
+                break;
+
+                case 1:
+                    day1Audio.UnPause();
+                break;
+
+                case 2:
+                    day2Audio.UnPause();
+                break;
+
+                case 3:
+                    day3Audio.UnPause();
+                break;
+            }
+        }
+        else
+        {
+            day0Audio.Pause();
+            day1Audio.Pause();
+            day2Audio.Pause();
+            day3Audio.Pause();
         }
     }
 }

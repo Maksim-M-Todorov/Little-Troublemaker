@@ -12,41 +12,41 @@ public class Lamp_Masterbedroom : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        if (moneyCounter.stateLight_MasterBedroom == false)
+        if (moneyCounter.stateLamp_MasterBedroom == false)
         {
-            moneyCounter.stateLight_MasterBedroom = true;
-            moneyCounter.numLight_MasterBedroom = 1;
+            moneyCounter.stateLamp_MasterBedroom = true;
+            moneyCounter.numLamp_MasterBedroom = 1;
         }
-        else if (moneyCounter.stateLight_MasterBedroom == true)
+        else if (moneyCounter.stateLamp_MasterBedroom == true)
         {
-            moneyCounter.stateLight_MasterBedroom = false;
-            moneyCounter.numLight_MasterBedroom = 0;
+            moneyCounter.stateLamp_MasterBedroom = false;
+            moneyCounter.numLamp_MasterBedroom = 0;
         }
         return true;
     }
 
     public bool InteractAI(littleTroublemakerMS interactor)
     {
-        if (moneyCounter.stateLight_MasterBedroom == false)
+        if (moneyCounter.stateLamp_MasterBedroom == false)
         {
-            moneyCounter.stateLight_MasterBedroom = true;
-            moneyCounter.numLight_MasterBedroom = 1;
+            moneyCounter.stateLamp_MasterBedroom = true;
+            moneyCounter.numLamp_MasterBedroom = 1;
         }
         return true;
     }
 
     public bool InteractBullet(BulletScript interactor)
     {
-        if (moneyCounter.stateLight_MasterBedroom == true)
+        if (moneyCounter.stateLamp_MasterBedroom == true)
         {
-            moneyCounter.stateLight_MasterBedroom = false;
-            moneyCounter.numLight_MasterBedroom = 0;
+            moneyCounter.stateLamp_MasterBedroom = false;
+            moneyCounter.numLamp_MasterBedroom = 0;
         }
         return true;
     }
     private void LateUpdate()
     {
-        if (moneyCounter.stateLight_MasterBedroom == true && inventory.xRayGoggles == true)
+        if (moneyCounter.stateLamp_MasterBedroom == true && inventory.xRayGoggles == true)
         {
             Outline outline = gameObject.GetComponent<Outline>();
             outline.enabled = true;

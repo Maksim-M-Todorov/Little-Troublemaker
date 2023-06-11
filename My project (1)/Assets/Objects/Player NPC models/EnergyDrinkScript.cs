@@ -10,7 +10,6 @@ public class EnergyDrinkScript : MonoBehaviour
     public float delay = 5f;
     public float countDown;
     public bool readyToDrink = true;
-    public bool isSpeeded = false;
 
     void Start()
     {
