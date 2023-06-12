@@ -83,6 +83,11 @@ public class Bob : MonoBehaviour, IInteractable
         {
             BobWarning();
         }
+
+        if (!moneyCounter.stateBob)
+        {
+            uiElement.SetActive(false);
+        }
     }
 
     void BobWarning()
@@ -94,7 +99,7 @@ public class Bob : MonoBehaviour, IInteractable
                 case 0:
                     if (moneyCounter.stateLight_Bathroom && moneyCounter.stateShower && moneyCounter.stateSink_Bathroom && !audioData.isPlaying("bobBathroom"))
                     {
-                        audioData.Play("bobBathroom");
+                        audioData.PlayDelayed("bobBathroom",1);
                         uiElement.SetActive(true);
                     }
                     else
@@ -110,7 +115,7 @@ public class Bob : MonoBehaviour, IInteractable
                 case 1:
                     if (moneyCounter.stateLight_Kidsroom && moneyCounter.stateRadiator_Kidsroom && moneyCounter.stateToyTrain && moneyCounter.stateLamp && !audioData.isPlaying("bobKidsroom"))
                     {
-                        audioData.Play("bobKidsroom");
+                        audioData.PlayDelayed("bobKidsroom", 1);
                         uiElement.SetActive(true);
                     }
                     else
@@ -126,7 +131,7 @@ public class Bob : MonoBehaviour, IInteractable
                 case 2:
                     if (moneyCounter.stateBlender && moneyCounter.stateCounter_Dishwasher_Kitchen && moneyCounter.stateCounter_Sink_Kitchen && moneyCounter.stateFridge && moneyCounter.stateMicrowave && moneyCounter.stateStove && moneyCounter.stateLight_Kitchen && !audioData.isPlaying("bobKitchen"))
                     {
-                        audioData.Play("bobKitchen");
+                        audioData.PlayDelayed("bobKitchen", 1);
                         uiElement.SetActive(true);
                     }
                     else
@@ -142,7 +147,7 @@ public class Bob : MonoBehaviour, IInteractable
                 case 3:
                     if (moneyCounter.stateDryer && moneyCounter.stateVacuum && moneyCounter.stateIron && moneyCounter.stateWashingMash && moneyCounter.stateLight_Laundryroom && !audioData.isPlaying("bobLaundryroom"))
                     {
-                        audioData.Play("bobLaundryroom");
+                        audioData.PlayDelayed("bobLaundryroom", 1);
                         uiElement.SetActive(true);
                     }
                     else
@@ -158,7 +163,7 @@ public class Bob : MonoBehaviour, IInteractable
                 case 4:
                     if (moneyCounter.stateGamingSystem && moneyCounter.stateRadio && moneyCounter.stateTV && moneyCounter.stateLight_Livingroom && !audioData.isPlaying("bobLivingroom"))
                     {
-                        audioData.Play("bobLivingroom");
+                        audioData.PlayDelayed("bobLivingroom", 1);
                         uiElement.SetActive(true);
                     }
                     else
@@ -174,7 +179,7 @@ public class Bob : MonoBehaviour, IInteractable
                 case 5:
                     if (moneyCounter.stateIpad && moneyCounter.stateLamp_MasterBedroom && moneyCounter.stateRadiator_MasterBedroom && moneyCounter.stateLight_MasterBedroom && !audioData.isPlaying("bobMasterbedroom"))
                     {
-                        audioData.Play("bobMasterbedroom");
+                        audioData.PlayDelayed("bobMasterbedroom", 1);
                         uiElement.SetActive(true);
                     }
                     else

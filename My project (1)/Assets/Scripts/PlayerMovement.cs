@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+    public AudioSource walkingSound;
+
     Vector3 moveDirection;
 
     Rigidbody rb;
@@ -60,12 +62,31 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
+        if (walkingSound != null)
+        {
+            if (Time.timeScale != 0 && !walkingSound.isPlaying && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+            {
+                walkingSound.Play(0);
+            }
+
+            if (Time.timeScale == 0)
+            {
+                walkingSound.Stop();
+            }
+
+            if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+            {
+                walkingSound.Stop();
+            }
+        }
+        
     }
 
     void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        
 
         //when to jump
         if(Input.GetKey(jumpKey) && readyToJump && grounded)

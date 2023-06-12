@@ -7,6 +7,9 @@ public class Light_Kidsroom : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public MoneyCounter moneyCounter;
     public Inventory inventory;
+    public AudioSource audioSource;
+
+    bool hasPlayed = false;
 
     public string InteractionPrompt => _prompt;
 
@@ -55,6 +58,23 @@ public class Light_Kidsroom : MonoBehaviour, IInteractable
         {
             Outline outline = gameObject.GetComponent<Outline>();
             outline.enabled = false;
+        }
+    }
+    private void Update()
+    {
+        if (Time.timeScale != 0)
+        {
+            if (!audioSource.isPlaying && moneyCounter.stateLight_Kidsroom && !hasPlayed)
+            {
+                audioSource.Play(0);
+                hasPlayed = true;
+            }
+        }
+
+        if (Time.deltaTime == 0 || moneyCounter.stateLight_Kidsroom == false)
+        {
+            audioSource.Stop();
+            hasPlayed = false;
         }
     }
 }

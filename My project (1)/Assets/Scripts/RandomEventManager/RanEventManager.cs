@@ -10,6 +10,8 @@ public class RanEventManager : MonoBehaviour
     public GameObject kid4;
     public Inventory inv;
     public MoneyCounter moneyCounter;
+    public RoundController roundController;
+    public AudioSource audioSource;
 
     public GameObject BPEI;
     public GameObject GMI;
@@ -33,63 +35,66 @@ public class RanEventManager : MonoBehaviour
 
     void Start()
     {
-        switch (EventID)
+        if (roundController.roundCount != 0)
         {
-            case 1:
-                {
-                    //Birthday Party, spawn 3 more kids
-                    kid2.SetActive(true);
-                    kid3.SetActive(true);
-                    kid4.SetActive(true);
-                    BPEI.SetActive(true);
-                    countDown = delay;
-                }
-            break;
+            switch (EventID)
+            {
+                case 1:
+                    {
+                        //Birthday Party, spawn 3 more kids
+                        kid2.SetActive(true);
+                        kid3.SetActive(true);
+                        kid4.SetActive(true);
+                        BPEI.SetActive(true);
+                        countDown = delay;
+                    }
+                    break;
 
-            case 2:
-                {
-                    //Kid to Grandma, deactivate kid for 30 seconds
-                    kid.SetActive(false);
-                    countDown = delay;
-                    GMI.SetActive(true);
-                }
-            break;
+                case 2:
+                    {
+                        //Kid to Grandma, deactivate kid for 30 seconds
+                        kid.SetActive(false);
+                        countDown = delay;
+                        GMI.SetActive(true);
+                    }
+                    break;
 
-           //case 3:
-           //    {
-           //        //Deliver, Go to the door and click E
-           //    }
-           //break;
-                
-            case 3:
-                {
-                    //Work Bonus, get 10k added to current money
-                    inv.currentMoney = PlayerPrefs.GetInt("PlayerMoney");
-                    inv.currentMoney += 10000;
-                    PlayerPrefs.SetInt("PlayerMoney", inv.currentMoney);
-                    WBI.SetActive(true);
-                    countDown = delay;
-                }
-            break;
-                
-            case 4:
-                {
-                    //Power Outage, set money per sec to 0 for 30 seconds
-                    EventPowerOutage = true;
-                    countDown = delay;
-                    POI.SetActive(true);
-                }
-            break;
-                
-            case 5:
-                {
-                    //Inflation, increase money per sec by 25%
-                    EventInflation = true;
-                    IFI.SetActive(true);
-                    countDown = delay;
-                }
-            break;
+                //case 3:
+                //    {
+                //        //Deliver, Go to the door and click E
+                //    }
+                //break;
 
+                case 3:
+                    {
+                        //Work Bonus, get 10k added to current money
+                        inv.currentMoney = PlayerPrefs.GetInt("PlayerMoney");
+                        inv.currentMoney += 10000;
+                        PlayerPrefs.SetInt("PlayerMoney", inv.currentMoney);
+                        WBI.SetActive(true);
+                        countDown = delay;
+                    }
+                    break;
+
+                case 4:
+                    {
+                        //Power Outage, set money per sec to 0 for 30 seconds
+                        EventPowerOutage = true;
+                        countDown = delay;
+                        POI.SetActive(true);
+                    }
+                    break;
+
+                case 5:
+                    {
+                        //Inflation, increase money per sec by 25%
+                        EventInflation = true;
+                        IFI.SetActive(true);
+                        countDown = delay;
+                    }
+                    break;
+
+            }
         }
     }
 
@@ -117,6 +122,7 @@ public class RanEventManager : MonoBehaviour
 
             if (EventID == 4)
             {
+                audioSource.Play(0);
                 EventPowerOutage = false;
                 POI.SetActive(false);
                 EventID = 0;
@@ -153,7 +159,6 @@ public class RanEventManager : MonoBehaviour
                 moneyCounter.stateLight_Bathroom = false;
                 moneyCounter.stateLight_MasterBedroom = false;
                 moneyCounter.stateLight_Kidsroom = false;
-                moneyCounter.counterOn = false;
             }
 
             if (EventID == 5)

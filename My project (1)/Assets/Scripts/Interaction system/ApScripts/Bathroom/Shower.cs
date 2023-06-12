@@ -7,6 +7,7 @@ public class Shower : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public MoneyCounter moneyCounter;
     public Inventory inventory;
+    public AudioSource audioSource;
 
     public string InteractionPrompt => _prompt;
 
@@ -55,6 +56,21 @@ public class Shower : MonoBehaviour, IInteractable
         {
             Outline outline = gameObject.GetComponent<Outline>();
             outline.enabled = false;
+        }
+    }
+    private void Update()
+    {
+        if (Time.timeScale != 0)
+        {
+            if (!audioSource.isPlaying && moneyCounter.stateShower)
+            {
+                audioSource.Play(0);
+            }
+        }
+
+        if (Time.deltaTime == 0 || moneyCounter.stateShower == false)
+        {
+            audioSource.Stop();
         }
     }
 }

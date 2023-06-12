@@ -9,6 +9,7 @@ public class littleTroublemakerMS : MonoBehaviour
     public MoneyCounter canInteractWO;
     public NavMeshAgent navMeshAgent;
     public RoundController roundController;
+    public AudioManager audioData;
 
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
@@ -21,17 +22,46 @@ public class littleTroublemakerMS : MonoBehaviour
     private Vector3 pos;
     private int ObjGoTo = 0;
 
-    private bool Failsafe = false;
+    private bool Failsafe = true;
     protected float failsafetimer;
-    private int failsafeDelay = 5;
+    private int failsafeDelay = 8;
 
+    float delay = 5;
+    float countdown;
+    bool speaking = false;
 
-    //Roll the dice at the start to decide first appliance and go to it.
     private void Start()
     {
+        countdown = delay;
         //Function that gets a random number from a given range
         //This number is the same as the ID of an appliance
         ObjID();
+
+        //Kid growing up
+        switch (roundController.roundCount)
+        {
+            case 0:
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+                break;
+            
+            case 1:
+                gameObject.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+                break;
+            
+            case 2:
+                gameObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+                break;
+           
+            case 3:
+                gameObject.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+                break;
+        }
+        if(audioData != null)
+        {
+            audioData.Stop("kidPanting");
+            audioData.Stop("kidGiggle");
+            audioData.Stop("kidCry");
+        }
     }
 
     //Custom Function used to get the location/position of the appliance and pass in the cordinates to the AI to go to.
@@ -74,6 +104,7 @@ public class littleTroublemakerMS : MonoBehaviour
             {
                 pos = GameObject.Find("RestingPlace").transform.position;
                 navMeshAgent.SetDestination(pos);
+                ObjID();
             }
         }
     }
@@ -81,8 +112,69 @@ public class littleTroublemakerMS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(roundController.roundCount);
+        if (Time.timeScale != 0)
+        {
+            if (speaking == false)
+            {
+                countdown -= Time.deltaTime;
+                if (countdown <= 0)
+                {
+                    speaking = true;
+                    countdown = delay;
+                    int saywhat = Random.Range(0,2);
+                    switch (saywhat)
+                    {
+                        case 0:
+                            if (!audioData.isPlaying("kidGiggle") && !audioData.isPlaying("kidCry"))
+                            {
+                                audioData.Play("kidGiggle");
+                                speaking = false;
+                            }
+                            break;
+
+                        case 1:
+                            if (!audioData.isPlaying("kidCry") && !audioData.isPlaying("kidGiggle"))
+                            {
+                                audioData.Play("kidCry");
+                                speaking = false;
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            audioData.Stop("kidGiggle");
+            audioData.Stop("kidCry");
+        }
+
+
+        if (!audioData.isPlaying("kidRunning") && Time.timeScale != 0)
+        {
+            audioData.Play("kidRunning");
+        }
+    
+        if(Time.timeScale == 0 || Vector3.Distance(gameObject.transform.position, GameObject.Find("RestingPlace").transform.position) <=0.3f)
+        {
+            audioData.Stop("kidRunning");
+        }
+
+        if (!audioData.isPlaying("kidRunning") && Time.timeScale != 0 && Vector3.Distance(gameObject.transform.position, GameObject.Find("RestingPlace").transform.position) <= 0.3f)
+        {
+            if (!audioData.isPlaying("kidPanting"))
+            {
+                audioData.Play("kidPanting");
+            }
+        }
+        else
+        {
+            audioData.Stop("kidPanting");
+        }
+
+        //Debug.Log(roundController.roundCount);
         //Debug.Log(ObjGoTo);
+
         //Number of interactables in the collision hitbox sphere
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
@@ -91,9 +183,45 @@ public class littleTroublemakerMS : MonoBehaviour
         {
             pos = GameObject.Find("TeddyBearGrenade(Clone)").transform.position;
             navMeshAgent.SetDestination(pos);
+            if (audioData != null && gameObject.name == "LittleTroublemaker" && Time.timeScale != 0)
+            {
+                switch (roundController.roundCount)
+                {
+                    case 0:
+                        if (!audioData.isPlaying("kidYayV1"))
+                        {
+                            audioData.PlayDelayed("kidYayV1", 2);
+                        }
+                        break;
+
+                    case 1:
+                        if (!audioData.isPlaying("kidYayV1"))
+                        {
+                            audioData.PlayDelayed("kidYayV1", 2);
+                        }
+                        break;
+
+                    case 2:
+                        if (!audioData.isPlaying("kidYayV2"))
+                        {
+                            audioData.PlayDelayed("kidYayV2", 2);
+                        }
+                        break;
+
+                    case 3:
+                        if (!audioData.isPlaying("kidYayV3"))
+                        {
+                            audioData.PlayDelayed("kidYayV3", 2);
+                        }
+                        break;
+                }
+            }
         }
         else
         {
+            audioData.Stop("kidYayV1");
+            audioData.Stop("kidYayV2");
+            audioData.Stop("kidYayV3");
             switch (ObjGoTo)
             {
 

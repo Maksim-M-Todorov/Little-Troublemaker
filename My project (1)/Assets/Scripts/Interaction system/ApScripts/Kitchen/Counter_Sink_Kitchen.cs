@@ -7,6 +7,7 @@ public class Counter_Sink_Kitchen : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public MoneyCounter moneyCounter;
     public Inventory inventory;
+    public AudioSource audioSource;
 
     public string InteractionPrompt => _prompt;
 
@@ -55,6 +56,21 @@ public class Counter_Sink_Kitchen : MonoBehaviour, IInteractable
         {
             Outline outline = gameObject.GetComponent<Outline>();
             outline.enabled = false;
+        }
+    }
+    private void Update()
+    {
+        if (Time.timeScale != 0)
+        {
+            if (!audioSource.isPlaying && moneyCounter.stateCounter_Sink_Kitchen)
+            {
+                audioSource.Play(0);
+            }
+        }
+
+        if (Time.deltaTime == 0 || moneyCounter.stateCounter_Sink_Kitchen == false)
+        {
+            audioSource.Stop();
         }
     }
 }

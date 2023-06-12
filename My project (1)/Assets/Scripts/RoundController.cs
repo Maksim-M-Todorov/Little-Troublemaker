@@ -29,7 +29,6 @@ public class RoundController : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(roundCount);
         if (roundStart == true)
         {
             if (roundLenght > 0f)
@@ -39,10 +38,14 @@ public class RoundController : MonoBehaviour
             else
             {
                 roundLenght = 0f;
-                if (inventory.startMoney > 0)
+                if (inventory.currentMoney > 0)
                 {
                     roundComplete = true;
-                    //levelChangerUpgradeMenu.FadeToUpdateMenu();
+                }
+                else if (inventory.currentMoney < 0 || roundCount == 4)
+                {
+                    Application.Quit();
+                    Debug.Log("GAME OVER");
                 }
             }
         }

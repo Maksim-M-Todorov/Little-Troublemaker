@@ -9,6 +9,7 @@ public class NerfGunAnimationControllerScript : MonoBehaviour
     public GameObject bulletPrefab;
     public Inventory inv;
     public ParticleSystem particle;
+    public AudioSource audioSource;
     public float bulletSpeed = 10;
 
     public float delay = 5f;
@@ -42,6 +43,7 @@ public class NerfGunAnimationControllerScript : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     nerfGunAnimator.SetTrigger("Fire");
+                    audioSource.Play();
                     var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                     bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
                     particle.Play();

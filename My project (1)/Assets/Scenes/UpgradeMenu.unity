@@ -9098,11 +9098,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9011009402017258193, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9011009402017258194, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9011009402017258195, guid: e435a36c63cda834eb8f56ab596a8801, type: 3}
       propertyPath: startMoney

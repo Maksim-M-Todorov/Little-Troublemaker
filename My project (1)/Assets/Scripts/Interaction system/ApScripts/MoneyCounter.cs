@@ -179,6 +179,7 @@ public class MoneyCounter : MonoBehaviour
     public int costLight_Kidsroom = 5;
     #endregion
 
+ 
     //Initialize text in the UI element
     private void Start()
     {
@@ -245,7 +246,7 @@ public class MoneyCounter : MonoBehaviour
         mCounterText.text = inventory.currentMoney.ToString();
         SetMoney();
 
-        //Debug.Log(MoneyPerSec(moneyPerSec));
+        Debug.Log(roundController.roundCount);
     }
 
 
@@ -264,6 +265,36 @@ public class MoneyCounter : MonoBehaviour
         timeFridge += numFridge;
         timeTV += numTV;
         timeLamp += numLamp;
+
+        timeSink_Toilet += numSink_Toilet;
+        timeGamingSystem += numGamingSystem;
+        timeKettle += numKettle;
+        timeCounter_Sink_Kitchen += numCounter_Sink_Kitchen;
+        timeCounter_Dishwasher_Kitchen += numCounter_Dishwasher_Kitchen;
+        timeStove += numStove;
+        timeMicrowave += numMicrowave;
+        timeBlender += numBlender;
+        timeIron += numIron;
+        timeVacuum += numVacuum;
+        timeShower += numShower;
+        timeSink_Bathroom += numSink_Bathroom;
+        timeRadiator_MasterBedroom += numRadiator_MasterBedroom;
+        timeIpad += numIpad;
+        timeToyTrain += numToyTrain;
+        timeRadiator_Kidsroom += numRadiator_Kidsroom;
+        timeComputer += numComputer;
+        timeRadiator_Hall += numRadiator_Hall;
+        timeLamp_MasterBedroom += numLamp_MasterBedroom;
+
+        timeLight_Entry += numLight_Entry;
+        timeLight_Toilet += numLight_Toilet;
+        timeLight_Livingroom += numLight_Livingroom;
+        timeLight_Diningroom += numLight_Diningroom;
+        timeLight_Kitchen += numLight_Kitchen;
+        timeLight_Laundryroom += numLight_Laundryroom;
+        timeLight_Bathroom += numLight_Bathroom;
+        timeLight_MasterBedroom += numLamp_MasterBedroom;
+        timeLight_Kidsroom += numLight_Kidsroom;
     }
 
     //Save and update the money the player has in case of crashes
