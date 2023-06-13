@@ -246,7 +246,7 @@ public class MoneyCounter : MonoBehaviour
         mCounterText.text = inventory.currentMoney.ToString();
         SetMoney();
 
-        Debug.Log(roundController.roundCount);
+        //Debug.Log(roundController.roundCount);
     }
 
 

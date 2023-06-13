@@ -5,7 +5,9 @@ using UnityEngine;
 public class AUReadyMenu : MonoBehaviour
 {
     public PauseMenu pauseGame;
-    // Start is called before the first frame update
+    public Inventory inv;
+    public PauseMenu pm;
+
     private void Awake()
     {
         Cursor.visible = true;
@@ -17,9 +19,16 @@ public class AUReadyMenu : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             gameObject.SetActive(false);
+            inv.loadPlayerData();
+            pm.ResumeNoPM();
+        }
+
+        if(gameObject.activeSelf && Time.timeScale == 1)
+        {
+            gameObject.SetActive(false );
         }
     }
 }

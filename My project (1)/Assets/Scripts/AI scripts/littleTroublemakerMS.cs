@@ -30,8 +30,35 @@ public class littleTroublemakerMS : MonoBehaviour
     float countdown;
     bool speaking = false;
 
+    int kidTexture = 0;
+
+    public Material mat1;
+    public Material mat2;
+    public Material mat3;
+
+    public GameObject kidTextureMat;
+
+
+    private void Awake()
+    {
+        kidTexture = Random.Range(0,3);
+    }
+
     private void Start()
     {
+        switch (kidTexture)
+        {
+            case 0:
+                kidTextureMat.GetComponent<Renderer>().material = mat1;
+                break;
+            case 1:
+                kidTextureMat.GetComponent<Renderer>().material = mat2;
+                break;
+            case 2:
+                kidTextureMat.GetComponent<Renderer>().material = mat3;
+                break;
+        }
+
         countdown = delay;
         //Function that gets a random number from a given range
         //This number is the same as the ID of an appliance
@@ -112,6 +139,8 @@ public class littleTroublemakerMS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(ObjGoTo);
+
         if (Time.timeScale != 0)
         {
             if (speaking == false)

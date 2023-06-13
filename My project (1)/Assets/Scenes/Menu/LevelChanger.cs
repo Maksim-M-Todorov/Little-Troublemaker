@@ -34,6 +34,14 @@ public class LevelChanger : MonoBehaviour
     {
         StartCoroutine(FadeToLevel(1));
     }
+    public void FadeToWinScreen()
+    {
+        StartCoroutine(FadeToLevel(3));
+    }
+    public void FadeToLoseScreen()
+    {
+        StartCoroutine(FadeToLevel(4));
+    }
 
     IEnumerator FadeToLevel(int levelIndex)
     {

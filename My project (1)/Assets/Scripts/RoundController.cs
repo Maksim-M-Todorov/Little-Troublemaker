@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class RoundController : MonoBehaviour
 {
     private bool roundStart = false;
-    public LevelChanger levelChangerUpgradeMenu;
+    public LevelChanger levelChanger;
     public Inventory inventory;
     public GameObject AI;
     public GameObject InteractablesOB;
@@ -42,10 +42,21 @@ public class RoundController : MonoBehaviour
                 {
                     roundComplete = true;
                 }
-                else if (inventory.currentMoney < 0 || roundCount == 4)
+                else
                 {
-                    Application.Quit();
-                    Debug.Log("GAME OVER");
+                    levelChanger.FadeToLoseScreen();
+                    //Debug.Log("GAME OVER");
+                }
+
+                if (inventory.currentMoney < 0 && roundCount == 3)
+                {
+                    levelChanger.FadeToLoseScreen();
+                    //Debug.Log("GAME OVER");
+                }
+                else if (inventory.currentMoney >= 0 && roundCount == 3)
+                {
+                    levelChanger.FadeToWinScreen();
+                    //Debug.Log("Victory");
                 }
             }
         }
