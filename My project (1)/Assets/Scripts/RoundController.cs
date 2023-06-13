@@ -48,12 +48,7 @@ public class RoundController : MonoBehaviour
                     //Debug.Log("GAME OVER");
                 }
 
-                if (inventory.currentMoney < 0 && roundCount == 3)
-                {
-                    levelChanger.FadeToLoseScreen();
-                    //Debug.Log("GAME OVER");
-                }
-                else if (inventory.currentMoney >= 0 && roundCount == 3)
+                if (inventory.currentMoney >= 0 && roundCount == 4)
                 {
                     levelChanger.FadeToWinScreen();
                     //Debug.Log("Victory");
