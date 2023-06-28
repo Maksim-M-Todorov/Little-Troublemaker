@@ -8,8 +8,6 @@ public class UIWeaponWheel : MonoBehaviour
 {
     public Inventory inv;
 
-
-
     public GrenadeThrower grenadeCD;
     public NerfGunAnimationControllerScript fireCD;
     public EnergyDrinkScript energyDrink;
@@ -31,6 +29,7 @@ public class UIWeaponWheel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Activete tools wheel UI Icons
         if (inv.Teddybear && inv.TeddybearUses >0)
         {
             toolTB.SetActive(true);
@@ -63,6 +62,7 @@ public class UIWeaponWheel : MonoBehaviour
             toolED.SetActive(false);
         }
 
+        //Display button prompts and cooldown on tools
         if (toolTB != null)
         {
             TBUsesLeft.text = inv.TeddybearUses.ToString();
@@ -98,7 +98,7 @@ public class UIWeaponWheel : MonoBehaviour
             }
             else
             {
-                EDCD.text = "LMB";
+                EDCD.text = "RMB";
             }
         }
     }

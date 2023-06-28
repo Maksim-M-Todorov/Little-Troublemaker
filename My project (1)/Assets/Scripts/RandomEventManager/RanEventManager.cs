@@ -127,6 +127,7 @@ public class RanEventManager : MonoBehaviour
                 POI.SetActive(false);
                 EventID = 0;
                 moneyCounter.stateWashingMash = false;
+                #region
                 moneyCounter.stateDryer = false;
                 moneyCounter.stateBob = false;
                 moneyCounter.stateRadio = false;
@@ -159,6 +160,7 @@ public class RanEventManager : MonoBehaviour
                 moneyCounter.stateLight_Bathroom = false;
                 moneyCounter.stateLight_MasterBedroom = false;
                 moneyCounter.stateLight_Kidsroom = false;
+                #endregion
             }
 
             if (EventID == 5)

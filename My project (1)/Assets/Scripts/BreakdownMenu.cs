@@ -34,9 +34,11 @@ public class BreakdownMenu : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        //Display Total Time on for each appliance
         invoiceTimeOn.text = (moneyCounter.timeSink_Bathroom + moneyCounter.timeSink_Toilet + moneyCounter.timeCounter_Sink_Kitchen) + "<br>" +
                              moneyCounter.timeRadio + "<br>" +
                              moneyCounter.timeIpad + "<br>" +
+        #region
                              moneyCounter.timeToyTrain + "<br>" +
                              moneyCounter.timeTV + "<br>" +
                              moneyCounter.timeBob + "<br>" +
@@ -55,10 +57,12 @@ public class BreakdownMenu : MonoBehaviour
                              moneyCounter.timeCounter_Dishwasher_Kitchen + "<br>" +
                              (moneyCounter.timeRadiator_Hall + moneyCounter.timeRadiator_Kidsroom + moneyCounter.timeRadiator_MasterBedroom) + "<br>" +
                              moneyCounter.timeStove;
-
+        #endregion
+        //Display Total cost of appliance for the time it was on
         invoiceTotalPerApp.text = (moneyCounter.timeSink_Bathroom + moneyCounter.timeSink_Toilet + moneyCounter.timeCounter_Sink_Kitchen) * moneyCounter.costSink_Bathroom + "<br>" +
                              moneyCounter.timeRadio * moneyCounter.costRadio + "<br>" +
                              moneyCounter.timeIpad * moneyCounter.costIpad + "<br>" +
+        #region
                              moneyCounter.timeToyTrain * moneyCounter.costToyTrain + "<br>" +
                              moneyCounter.timeTV * moneyCounter.costTV + "<br>" +
                              moneyCounter.timeBob * moneyCounter.costBob + "<br>" +
@@ -77,11 +81,12 @@ public class BreakdownMenu : MonoBehaviour
                              moneyCounter.timeCounter_Dishwasher_Kitchen * moneyCounter.costCounter_Dishwasher_Kitchen + "<br>" +
                              (moneyCounter.timeRadiator_Hall + moneyCounter.timeRadiator_Kidsroom + moneyCounter.timeRadiator_MasterBedroom) * moneyCounter.costRadiator_Hall + "<br>" +
                              moneyCounter.timeStove * moneyCounter.costStove;
-
-
+        #endregion
+        //Calculate total money lost
         totalMoneyLost = ((moneyCounter.timeSink_Bathroom + moneyCounter.timeSink_Toilet + moneyCounter.timeCounter_Sink_Kitchen) * moneyCounter.costSink_Bathroom +
                              moneyCounter.timeRadio * moneyCounter.costRadio +
                              moneyCounter.timeIpad * moneyCounter.costIpad +
+        #region
                              moneyCounter.timeToyTrain * moneyCounter.costToyTrain +
                              moneyCounter.timeTV * moneyCounter.costTV +
                              moneyCounter.timeBob * moneyCounter.costBob +
@@ -100,9 +105,10 @@ public class BreakdownMenu : MonoBehaviour
                              moneyCounter.timeCounter_Dishwasher_Kitchen * moneyCounter.costCounter_Dishwasher_Kitchen +
                              (moneyCounter.timeRadiator_Hall + moneyCounter.timeRadiator_Kidsroom + moneyCounter.timeRadiator_MasterBedroom) * moneyCounter.costRadiator_Hall +
                              moneyCounter.timeStove * moneyCounter.costStove);
-
+        #endregion
+        //Calculate % lost based on supposed money lost and actual money lost/after applying upgrades
         percentLost = 100 - ((moneyAtRoundStart - inventory.currentMoney) / (totalMoneyLost * 0.01));
-
+        //Display Subtotal - Discount and Grand Total
         invoiceGrandTotal.text = totalMoneyLost + "<br>" +
                                  "~ " + percentLost.ToString("F1") + "%" + "<br>" +
                                  (moneyAtRoundStart - inventory.currentMoney);

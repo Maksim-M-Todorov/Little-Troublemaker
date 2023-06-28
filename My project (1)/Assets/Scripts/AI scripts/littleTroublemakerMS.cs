@@ -46,6 +46,7 @@ public class littleTroublemakerMS : MonoBehaviour
 
     private void Start()
     {
+        //Kid materials/clothes
         switch (kidTexture)
         {
             case 0:

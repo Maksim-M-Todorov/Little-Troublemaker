@@ -8,7 +8,7 @@ public class RotationgCameraControll : MonoBehaviour
 
     void Update()
     {
-        rotation += 0.1f;
+        rotation += 0.01f;
         transform.rotation = Quaternion.Euler(new Vector3(0f, rotation, 0f));
     }
 }

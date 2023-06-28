@@ -309,6 +309,7 @@ public class MoneyCounter : MonoBehaviour
         moneyPerSec = ( costWashingMash * numWashingMash +
                         costDryer * numDryer +
                         costBob * numBob +
+        #region
                         costRadio * numRadio +
                         costFridge * numFridge +
                         costTV * numTV +
@@ -342,6 +343,7 @@ public class MoneyCounter : MonoBehaviour
                         costRadiator_Hall * numRadiator_Hall +
                         costLamp_MasterBedroom * numLamp_MasterBedroom
                         );
+        #endregion
         #region Upgrades and Events
         //Apply House Upgrades
         if (inventory.SolarPanels)

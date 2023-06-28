@@ -16,7 +16,7 @@ public class ScrollingCreditsControll : MonoBehaviour
     {
         if (startScrolling)
         {
-            yAxisScroll += 1f;
+            yAxisScroll += 0.1f;
             transform.position = new Vector3(transform.position.x, yAxisScroll, transform.position.z);
         }
     }

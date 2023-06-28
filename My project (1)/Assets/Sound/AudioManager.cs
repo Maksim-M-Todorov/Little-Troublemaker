@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
         //    instance = this;
         //}
         
-
+        //Atributes for each sound clip
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Play the sound
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -46,6 +47,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    //Play the sound after a delay in seconds
     public void PlayDelayed (string name, float delay)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -57,6 +59,7 @@ public class AudioManager : MonoBehaviour
         s.source.PlayDelayed(delay);
     }
     
+    //Pause the sound
     public void Pause (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -68,6 +71,7 @@ public class AudioManager : MonoBehaviour
         s.source.Pause();
     }
     
+    //Un Pause the sound
     public void UnPause (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -79,6 +83,7 @@ public class AudioManager : MonoBehaviour
         s.source.UnPause();
     } 
 
+    //Stop the sound
     public void Stop (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -90,6 +95,7 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     } 
 
+    //Check if the sound is playing
     public bool isPlaying (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
